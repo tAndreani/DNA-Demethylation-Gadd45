@@ -37,7 +37,7 @@ gadd45Tko2="/project/jgu-cbdm/andradeLab/scratch/tandrean/Data/WGBS/Gadd45.TKO/G
 gadd45Tko3="/project/jgu-cbdm/andradeLab/scratch/tandrean/Data/WGBS/Gadd45.TKO/Gadd45.tko.Quality.Filter/Gadd45.TKO3/"
 mESC="/project/jgu-cbdm/andradeLab/scratch/tandrean/Data/WGBS/Gadd45.TKO/Gadd45.tko.Quality.Filter/mESC/"
 extraction="/project/jgu-cbdm/andradeLab/scratch/tandrean/Data/WGBS/Gadd45.TKO/Gadd45.tko.Quality.Filter/Extraction/"
-bismarkextract="/project/jgu-cbdm/andradeLab/scratch/tandrean/Tools_Script/bismark/bismark_v0.18.0/"
+bismark="/project/jgu-cbdm/andradeLab/scratch/tandrean/Tools_Script/bismark/bismark_v0.18.0/"
 fasta="/project/jgu-cbdm/andradeLab/scratch/tandrean/Genomes/Mus_musculus_mm10.2/Mus_musculus/UCSC/mm10/Sequence/WholeGenomeFasta/genome"
 
 #export fastq_file=`sed -n "$SLURM_ARRAY_TASK_ID"p list.files.gadd45.1`
@@ -56,30 +56,30 @@ fasta="/project/jgu-cbdm/andradeLab/scratch/tandrean/Genomes/Mus_musculus_mm10.2
 #Alignment
 
 #Gadd45.TKO1 496 files
-../../bismark --bowtie2 -n 1 -I 0 -X 1000 --score_min L,0,-0.6 $genome/genome -1 $gadd45Tko1/R1/$fastq_file -2 $gadd45Tko1/R2/$fastq_file -o $gadd45Tko1/Alignment/ 
+$bismark/bismark --bowtie2 -n 1 -I 0 -X 1000 --score_min L,0,-0.6 $genome/genome -1 $gadd45Tko1/R1/$fastq_file -2 $gadd45Tko1/R2/$fastq_file -o $gadd45Tko1/Alignment/ 
 
 #Gadd45.TKO2 494 files
-../../bismark --bowtie2 -n 1 -I 0 -X 1000 --score_min L,0,-0.6 $genome/genome -1 $gadd45Tko2/R1/$fastq_file -2 $gadd45Tko2/R2/$fastq_file -o $gadd45Tko2/Alignment/
+$bismark/bismark --bowtie2 -n 1 -I 0 -X 1000 --score_min L,0,-0.6 $genome/genome -1 $gadd45Tko2/R1/$fastq_file -2 $gadd45Tko2/R2/$fastq_file -o $gadd45Tko2/Alignment/
 
 #Gadd45.TKO3 489 files
-../../bismark --bowtie2 -n 1 -I 0 -X 1000 --score_min L,0,-0.6 $genome/genome -1 $gadd45Tko3/R1/$fastq_file -2 $gadd45Tko3/R2/$fastq_file -o  $gadd45Tko3/Alignment/
+$bismark/bismark --bowtie2 -n 1 -I 0 -X 1000 --score_min L,0,-0.6 $genome/genome -1 $gadd45Tko3/R1/$fastq_file -2 $gadd45Tko3/R2/$fastq_file -o  $gadd45Tko3/Alignment/
 
 #mESC Wild Type 502 files
-../../../bismark --bowtie2 -n 1 -I 0 -X 1000 --score_min L,0,-0.6 $genome/genome -1 $mESC/R1/$fastq_file -2 $mESC/R2/$fastq_file -o $mESC/Alignment/
+$bismark/bismark --bowtie2 -n 1 -I 0 -X 1000 --score_min L,0,-0.6 $genome/genome -1 $mESC/R1/$fastq_file -2 $mESC/R2/$fastq_file -o $mESC/Alignment/
 
 
 #sort for bismark by name always
-samtools merge -n $gadd45Tko1/Alignment/Gadd45.tko1.bam $gadd45Tko1/Alignment/*.bam
-samtools merge -n $gadd45Tko2/Alignment/Gadd45.tko2.bam $gadd45Tko2/Alignment/*.bam
-samtools merge -n $gadd45Tko3/Alignment/Gadd45.tko3.bam $gadd45Tko3/Alignment/*.bam
-samtools merge -n $mESC/Alignment/mESC.bam $mESC/Alignment/*.bam
+samtools merge -n $gadd45Tko1/Alignment/Gadd45.tko1.bam $gadd45Tko1/Alignment/x*.bam
+samtools merge -n $gadd45Tko2/Alignment/Gadd45.tko2.bam $gadd45Tko2/Alignment/x*.bam
+samtools merge -n $gadd45Tko3/Alignment/Gadd45.tko3.bam $gadd45Tko3/Alignment/x*.bam
+samtools merge -n $mESC/Alignment/mESC.bam $mESC/Alignment/x*.bam
 
 
 #Extract
-$bismarkextract/bismark_methylation_extractor -p --ignore 5 --ignore_r2 5 --ample_memory --bedGraph --counts --cytosine_report --buffer_size 10G --genome_folder $genome/genome $extraction/Gadd45.tko1.bam
-$bismarkextract/bismark_methylation_extractor -p --ignore 5 --ignore_r2 5 --ample_memory --bedGraph --counts --cytosine_report --buffer_size 10G --genome_folder $genome/genome $extraction/Gadd45.tko2.bam
-$bismarkextract/bismark_methylation_extractor -p --ignore 5 --ignore_r2 5 --ample_memory --bedGraph --counts --cytosine_report --buffer_size 10G --genome_folder $genome/genome $extraction/Gadd45.tko3.bam
-$bismarkextract/bismark_methylation_extractor -p --ignore 5 --ignore_r2 5 --ample_memory --bedGraph --counts --cytosine_report --buffer_size 10G --genome_folder $genome/genome $extraction/mESC.bam
+$bismark/bismark_methylation_extractor -p --ignore 5 --ignore_r2 5 --ample_memory --bedGraph --counts --cytosine_report --buffer_size 10G --genome_folder $genome/genome $extraction/Gadd45.tko1.bam
+$bismark/bismark_methylation_extractor -p --ignore 5 --ignore_r2 5 --ample_memory --bedGraph --counts --cytosine_report --buffer_size 10G --genome_folder $genome/genome $extraction/Gadd45.tko2.bam
+$bismark/bismark_methylation_extractor -p --ignore 5 --ignore_r2 5 --ample_memory --bedGraph --counts --cytosine_report --buffer_size 10G --genome_folder $genome/genome $extraction/Gadd45.tko3.bam
+$bismark/bismark_methylation_extractor -p --ignore 5 --ignore_r2 5 --ample_memory --bedGraph --counts --cytosine_report --buffer_size 10G --genome_folder $genome/genome $extraction/mESC.bam
 
 
 #Methpipe conversion
