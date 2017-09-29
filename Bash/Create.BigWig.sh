@@ -29,9 +29,15 @@ LC_ALL=C sort -T Temporary -k1,1 -k2,2n -o Gadd45.tko2.fast.bismark.cov.major.eg
 LC_ALL=C sort -T Temporary -k1,1 -k2,2n -o Gadd45.tko3.fast.bismark.cov.major.egual.10.sort.bedgraph Gadd45.tko3.fast.bismark.cov.major.egual.10.bedgraph
 LC_ALL=C sort -T Temporary -k1,1 -k2,2n -o mESC.bismark.cov.major.egual.10.sort.bedgraph mESC.bismark.cov.major.egual.10.bedgraph
 
+#Correct coordinates
+for i in *.cov.major.egual.10.sort.bedgraph;
+do
+       awk -F "\t" '{print $1"\t"$2-1"\t"$2"\t"$4}' $i > $i.coordinates;
+done &
+
 
 #Convert to BigWig
-./bedGraphToBigWig Gadd45.tko1.bismark.cov.major.egual.10.bed.bedgraph mm10.chr.sizes Gadd45.tko1.bismark.cov.major.egual.10.bed.bigWig &
-./bedGraphToBigWig Gadd45.tko2.fast.bismark.cov.major.egual.10.bed.bedgraph mm10.chr.sizes Gadd45.tko2.fast.bismark.cov.major.egual.10.bed.bigWig &
-./bedGraphToBigWig Gadd45.tko3.fast.bismark.cov.major.egual.10.bed.bedgraph mm10.chr.sizes Gadd45.tko3.fast.bismark.cov.major.egual.10.bed.bigWig &
-./bedGraphToBigWig mESC.bismark.cov.major.egual.10.bed.bedgraph mm10.chr.sizes mESC.bismark.cov.major.egual.10.bed.bigWig
+./bedGraphToBigWig Gadd45.tko1.bismark.cov.major.egual.10.bed.bedgraph.coordinates mm10.chr.sizes Gadd45.tko1.bismark.cov.major.egual.10.bed.bigWig &
+./bedGraphToBigWig Gadd45.tko2.fast.bismark.cov.major.egual.10.bed.bedgraph.coordinates mm10.chr.sizes Gadd45.tko2.fast.bismark.cov.major.egual.10.bed.bigWig &
+./bedGraphToBigWig Gadd45.tko3.fast.bismark.cov.major.egual.10.bed.bedgraph.coordinates mm10.chr.sizes Gadd45.tko3.fast.bismark.cov.major.egual.10.bed.bigWig &
+./bedGraphToBigWig mESC.bismark.cov.major.egual.10.bed.bedgraph.coordinates mm10.chr.sizes mESC.bismark.cov.major.egual.10.bed.bigWig
