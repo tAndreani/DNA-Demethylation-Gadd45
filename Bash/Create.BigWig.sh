@@ -24,13 +24,13 @@ do
 done &
 
 ## Sort he files
-LC_ALL=C sort -T Temporary -k1,1 -k2,2n -o Gadd45.tko1.bismark.cov.major.egual.10.sort.bedgraph Gadd45.tko1.bismark.cov.major.egual.10.bedgraph
-LC_ALL=C sort -T Temporary -k1,1 -k2,2n -o Gadd45.tko2.fast.bismark.cov.major.egual.10.sort.bedgraph Gadd45.tko2.fast.bismark.cov.major.egual.10.bedgraph
-LC_ALL=C sort -T Temporary -k1,1 -k2,2n -o Gadd45.tko3.fast.bismark.cov.major.egual.10.sort.bedgraph Gadd45.tko3.fast.bismark.cov.major.egual.10.bedgraph
-LC_ALL=C sort -T Temporary -k1,1 -k2,2n -o mESC.bismark.cov.major.egual.10.sort.bedgraph mESC.bismark.cov.major.egual.10.bedgraph
+LC_ALL=C sort -T Temporary -k1,1 -k2,2n -o Gadd45.tko1.bismark.cov.major.egual.10.bed.sort.bedgraph Gadd45.tko1.bismark.cov.major.egual.10.bed.bedgraph
+LC_ALL=C sort -T Temporary -k1,1 -k2,2n -o Gadd45.tko2.fast.bismark.cov.major.egual.10.bed.sort.bedgraph Gadd45.tko2.fast.bismark.cov.major.egual.10.bed.bedgraph
+LC_ALL=C sort -T Temporary -k1,1 -k2,2n -o Gadd45.tko3.fast.bismark.cov.major.egual.10.bed.sort.bedgraph Gadd45.tko3.fast.bismark.cov.major.egual.10.bed.bedgraph
+LC_ALL=C sort -T Temporary -k1,1 -k2,2n -o mESC.bismark.cov.major.egual.10.bed.sort.bedgraph mESC.bismark.cov.major.egual.10.bed.bedgraph
 
 #Correct coordinates
-for i in *.cov.major.egual.10.sort.bedgraph;
+for i in *.cov.major.egual.10.bed.sort.bedgraph;
 do
        awk -F "\t" '{print $1"\t"$2-1"\t"$2"\t"$4}' $i > $i.coordinates;
 done &
