@@ -20,12 +20,12 @@ wget http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/wigToBigWig
 #Convert the files in wig format #chr, start, end, meth	values
 for i in *egual.10.bed; 
 do
-        cut -f 1,2,3,4 $i > $i.wig; 
+        cut -f 1,2,3,4 $i > $i.bedgraph; 
 done &
 
 
 #Convert to BigWig
-./wigToBigWig Gadd45.tko1.bismark.cov.major.egual.10.bed.wig mm10.chr.sizes Gadd45.tko1.bismark.cov.major.egual.10.bed.bigWig &
-./wigToBigWig Gadd45.tko2.fast.bismark.cov.major.egual.10.bed.wig mm10.chr.sizes Gadd45.tko2.fast.bismark.cov.major.egual.10.bed.bigWig &
-./wigToBigWig Gadd45.tko3.fast.bismark.cov.major.egual.10.bed.wig mm10.chr.sizes Gadd45.tko3.fast.bismark.cov.major.egual.10.bed.bigWig &
-./wigToBigWig mESC.bismark.cov.major.egual.10.bed.wig mm10.chr.sizes mESC.bismark.cov.major.egual.10.bed.bigWig
+./wigToBigWig Gadd45.tko1.bismark.cov.major.egual.10.bed.bedgraph mm10.chr.sizes Gadd45.tko1.bismark.cov.major.egual.10.bed.bigWig &
+./wigToBigWig Gadd45.tko2.fast.bismark.cov.major.egual.10.bed.bedgraph mm10.chr.sizes Gadd45.tko2.fast.bismark.cov.major.egual.10.bed.bigWig &
+./wigToBigWig Gadd45.tko3.fast.bismark.cov.major.egual.10.bed.bedgraph mm10.chr.sizes Gadd45.tko3.fast.bismark.cov.major.egual.10.bed.bigWig &
+./wigToBigWig mESC.bismark.cov.major.egual.10.bed.bedgraph mm10.chr.sizes mESC.bismark.cov.major.egual.10.bed.bigWig
