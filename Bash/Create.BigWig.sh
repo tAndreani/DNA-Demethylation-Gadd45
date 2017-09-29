@@ -28,4 +28,4 @@ done &
 ./wigToBigWig Gadd45.tko1.bismark.cov.major.egual.10.bed.wig mm10.chr.sizes Gadd45.tko1.bismark.cov.major.egual.10.bed.bigWig &
 ./wigToBigWig Gadd45.tko2.fast.bismark.cov.major.egual.10.bed.wig mm10.chr.sizes Gadd45.tko2.fast.bismark.cov.major.egual.10.bed.bigWig &
 ./wigToBigWig Gadd45.tko3.fast.bismark.cov.major.egual.10.bed.wig mm10.chr.sizes Gadd45.tko3.fast.bismark.cov.major.egual.10.bed.bigWig &
-./wigToBigWig Gadd45.tko1.bismark.cov.major.egual.10.bed.wig mm10.chr.sizes Gadd45.tko1.bismark.cov.major.egual.10.bed.bigWig
+./wigToBigWig mESC.bismark.cov.major.egual.10.bed.wig mm10.chr.sizes mESC.bismark.cov.major.egual.10.bed.bigWig
