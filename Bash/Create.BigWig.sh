@@ -20,7 +20,7 @@ cat G45.TKO3.myCpG.bed | awk '$5 >= 10' > G45.TKO3.cov.major.egual.10.bed &
 wget http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/bedGraphToBigWig
 
 
-#Convert the files in wig format #chr, start, end, meth	values
+#Convert the files in bedgraph format #chr, start, end, meth	values
 for i in *egual.10.bed; 
 do
         cut -f 1,2,3,4 $i > $i.bedgraph; 
@@ -49,7 +49,7 @@ cat G45.TKO3.myCpG.bed | awk '$5 >= 5' > G45.TKO3.cov.major.egual.5.bed &
 wget http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/bedGraphToBigWig
 
 
-#Convert the files in wig format #chr, start, end, meth	values
+#Convert the files in bedgraph format #chr, start, end, meth	values
 for i in *egual.5.bed; 
 do
         cut -f 1,2,3,4 $i > $i.bedgraph; 
