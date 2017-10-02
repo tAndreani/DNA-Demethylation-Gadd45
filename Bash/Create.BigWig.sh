@@ -1,14 +1,14 @@
 #Compute the coverage
 zcat Gadd45.tko1.bismark.cov.gz | awk -F "\t" '{print $1"\t"$2"\t"$3"\t"$4"\t"$5+$6}' > Gadd45.tko1.bismark.cov.bed &
-zcat Gadd45.tko2.fast.bismark.cov.gz | awk -F "\t" '{print $1"\t"$2"\t"$3"\t"$4"\t"$5+$6}' > Gadd45.tko2.fast.bismark.cov.bed &
-zcat Gadd45.tko3.fast.bismark.cov.gz | awk -F "\t" '{print $1"\t"$2"\t"$3"\t"$4"\t"$5+$6}' > Gadd45.tko3.fast.bismark.cov.bed &
+zcat Gadd45.tko2.bismark.cov.gz | awk -F "\t" '{print $1"\t"$2"\t"$3"\t"$4"\t"$5+$6}' > Gadd45.tko2.bismark.cov.bed &
+zcat Gadd45.tko3.bismark.cov.gz | awk -F "\t" '{print $1"\t"$2"\t"$3"\t"$4"\t"$5+$6}' > Gadd45.tko3.bismark.cov.bed &
 zcat mESC.bismark.cov.gz | awk -F "\t" '{print $1"\t"$2"\t"$3"\t"$4"\t"$5+$6}' > mESC.bismark.cov.bed &
 
 
 #Filter CG with Coverage >= 10
 cat Gadd45.tko1.bismark.cov.bed | awk '$5 >= 10' > Gadd45.tko1.bismark.cov.major.egual.10.bed &
-cat Gadd45.tko2.fast.bismark.cov.bed | awk '$5 >= 10' > Gadd45.tko2.fast.bismark.cov.major.egual.10.bed &
-cat Gadd45.tko3.fast.bismark.cov.bed | awk '$5 >= 10' > Gadd45.tko3.fast.bismark.cov.major.egual.10.bed &
+cat Gadd45.tko2.bismark.cov.bed | awk '$5 >= 10' > Gadd45.tko2.bismark.cov.major.egual.10.bed &
+cat Gadd45.tko3.bismark.cov.bed | awk '$5 >= 10' > Gadd45.tko3.bismark.cov.major.egual.10.bed &
 cat mESC.bismark.cov.bed | awk '$5 >= 10' > mESC.bismark.cov.major.egual.10.bed &
 
 
@@ -25,8 +25,8 @@ done &
 
 ## Sort he files
 LC_ALL=C sort -T Temporary -k1,1 -k2,2n -o Gadd45.tko1.bismark.cov.major.egual.10.bed.sort.bedgraph Gadd45.tko1.bismark.cov.major.egual.10.bed.bedgraph
-LC_ALL=C sort -T Temporary -k1,1 -k2,2n -o Gadd45.tko2.fast.bismark.cov.major.egual.10.bed.sort.bedgraph Gadd45.tko2.fast.bismark.cov.major.egual.10.bed.bedgraph
-LC_ALL=C sort -T Temporary -k1,1 -k2,2n -o Gadd45.tko3.fast.bismark.cov.major.egual.10.bed.sort.bedgraph Gadd45.tko3.fast.bismark.cov.major.egual.10.bed.bedgraph
+LC_ALL=C sort -T Temporary -k1,1 -k2,2n -o Gadd45.tko2.bismark.cov.major.egual.10.bed.sort.bedgraph Gadd45.tko2.bismark.cov.major.egual.10.bed.bedgraph
+LC_ALL=C sort -T Temporary -k1,1 -k2,2n -o Gadd45.tko3.bismark.cov.major.egual.10.bed.sort.bedgraph Gadd45.tko3.bismark.cov.major.egual.10.bed.bedgraph
 LC_ALL=C sort -T Temporary -k1,1 -k2,2n -o mESC.bismark.cov.major.egual.10.bed.sort.bedgraph mESC.bismark.cov.major.egual.10.bed.bedgraph
 
 #Correct coordinates
@@ -38,6 +38,6 @@ done &
 
 #Convert to BigWig
 ./bedGraphToBigWig Gadd45.tko1.bismark.cov.major.egual.10.bed.bedgraph.coordinates mm10.chr.sizes Gadd45.tko1.bismark.cov.major.egual.10.bed.bigWig &
-./bedGraphToBigWig Gadd45.tko2.fast.bismark.cov.major.egual.10.bed.bedgraph.coordinates mm10.chr.sizes Gadd45.tko2.fast.bismark.cov.major.egual.10.bed.bigWig &
-./bedGraphToBigWig Gadd45.tko3.fast.bismark.cov.major.egual.10.bed.bedgraph.coordinates mm10.chr.sizes Gadd45.tko3.fast.bismark.cov.major.egual.10.bed.bigWig &
+./bedGraphToBigWig Gadd45.tko2.bismark.cov.major.egual.10.bed.bedgraph.coordinates mm10.chr.sizes Gadd45.tko2.bismark.cov.major.egual.10.bed.bigWig &
+./bedGraphToBigWig Gadd45.tko3.bismark.cov.major.egual.10.bed.bedgraph.coordinates mm10.chr.sizes Gadd45.tko3.bismark.cov.major.egual.10.bed.bigWig &
 ./bedGraphToBigWig mESC.bismark.cov.major.egual.10.bed.bedgraph.coordinates mm10.chr.sizes mESC.bismark.cov.major.egual.10.bed.bigWig
