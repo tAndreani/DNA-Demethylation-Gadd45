@@ -28,7 +28,7 @@ done &
 
 
 #Convert to BigWig
-./bedGraphToBigWig ES.WT.cov.major.egual.10.bed.bedgraph mm10.chr.sizes ES.WT.myCpG.cov.major.egual.10.bigWig &
+./bedGraphToBigWig ES.WT.cov.major.egual.10.bed.bedgraph mm10.chr.sizes ES.WT.cov.major.egual.10.bigWig &
 ./bedGraphToBigWig G45.TKO1.cov.major.egual.10.bed.bedgraph mm10.chr.sizes G45.TKO1.cov.major.egual.10.bigWig &
 ./bedGraphToBigWig G45.TKO2.cov.major.egual.10.bed.bedgraph mm10.chr.sizes G45.TKO2.cov.major.egual.10.bigWig &
 ./bedGraphToBigWig G45.TKO3.cov.major.egual.10.bed.bedgraph mm10.chr.sizes G45.TKO3.cov.major.egual.10.bigWig &
@@ -57,7 +57,7 @@ done &
 
 
 #Convert to BigWig
-./bedGraphToBigWig ES.WT.cov.major.egual.5.bed.bedgraph mm10.chr.sizes ES.WT.myCpG.cov.major.egual.5.bigWig &
+./bedGraphToBigWig ES.WT.cov.major.egual.5.bed.bedgraph mm10.chr.sizes ES.WT.cov.major.egual.5.bigWig &
 ./bedGraphToBigWig G45.TKO1.cov.major.egual.5.bed.bedgraph mm10.chr.sizes G45.TKO1.cov.major.egual.5.bigWig &
 ./bedGraphToBigWig G45.TKO2.cov.major.egual.5.bed.bedgraph mm10.chr.sizes G45.TKO2.cov.major.egual.5.bigWig &
 ./bedGraphToBigWig G45.TKO3.cov.major.egual.5.bed.bedgraph mm10.chr.sizes G45.TKO3.cov.major.egual.5.bigWig &
