@@ -41,7 +41,7 @@ done &
 
 ###Now for coverage >= 5
 
-#Filter CG with Coverage >= 10
+#Filter CG with Coverage >= 5
 cat ES.WT.myCpG.bed | awk '$5 >= 5' > ES.WT.cov.major.egual.5.bed &
 cat G45.TKO1.myCpG.bed | awk '$5 >= 5' > G45.TKO1.cov.major.egual.5.bed &
 cat G45.TKO2.myCpG.bed | awk '$5 >= 5' > G45.TKO2.cov.major.egual.5.bed &
@@ -111,7 +111,7 @@ done &
 
 ###Now for coverage >= 5
 
-#Filter CG with Coverage >= 10
+#Filter CG with Coverage >= 5
 cat ES.WT.myCpG.bed | awk '$5 >= 5' > ES.WT.cov.major.egual.5.bed &
 cat Neil.DKO.6.myCpG.bed | awk '$5 >= 5' > Neil.DKO.6.cov.major.egual.5.bed &
 cat Neil.DKO.7.myCpG.bed | awk '$5 >= 5' > Neil.DKO.7.cov.major.egual.5.bed &
