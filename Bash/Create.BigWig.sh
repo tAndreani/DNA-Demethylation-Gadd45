@@ -5,11 +5,11 @@
 #From the methylation extracted files (all of them with 43735674 CG extracted ) create a coverage file
 zcat ES.WT.myCpG.gz | awk '{OFS="\t";if($4+0 > 0 || $5+0 >0 ) print $1"\t"$2-1"\t"$2"\t"$4/($4+$5),
 $4+$5;}' > ES.WT.myCpG.bed &
-zcat G45.TKO1.myCpG.gz | awk '{OFS="\t";if($4+0 > 0 || $5+0 >0 ) print $1"\t"$2-1"\t"$2"\t"$3"\t"$4/($4+$5),
+zcat G45.TKO1.myCpG.gz | awk '{OFS="\t";if($4+0 > 0 || $5+0 >0 ) print $1"\t"$2-1"\t"$2"\t"$4/($4+$5),
 $4+$5;}' > G45.TKO1.myCpG.bed &
-zcat G45.TKO2.myCpG.gz | awk '{OFS="\t";if($4+0 > 0 || $5+0 >0 ) print $1"\t"$2-1"\t"$2"\t"$3"\t"$4/($4+$5),
+zcat G45.TKO2.myCpG.gz | awk '{OFS="\t";if($4+0 > 0 || $5+0 >0 ) print $1"\t"$2-1"\t"$2"\t"$4/($4+$5),
 $4+$5;}' > G45.TKO2.myCpG.bed &
-zcat G45.TKO3.myCpG.gz | awk '{OFS="\t";if($4+0 > 0 || $5+0 >0 ) print $1"\t"$2-1"\t"$2"\t"$3"\t"$4/($4+$5),
+zcat G45.TKO3.myCpG.gz | awk '{OFS="\t";if($4+0 > 0 || $5+0 >0 ) print $1"\t"$2-1"\t"$2"\t"$4/($4+$5),
 $4+$5;}' > G45.TKO3.myCpG.bed &
 
 #Filter CG with Coverage >= 10
@@ -75,11 +75,11 @@ done &
 #From the methylation extracted files (all of them with 43735674 CG extracted ) create a coverage file
 cat ES.WT.myCpG.txt | awk '{OFS="\t";if($4+0 > 0 || $5+0 >0 ) print $1"\t"$2-1"\t"$2"\t"$4/($4+$5),
 $4+$5;}' > ES.WT.myCpG.bed &
-cat Neil.DKO.6.myCpG.txt | awk '{OFS="\t";if($4+0 > 0 || $5+0 >0 ) print $1"\t"$2-1"\t"$2"\t"$3"\t"$4/($4+$5),
+cat Neil.DKO.6.myCpG.txt | awk '{OFS="\t";if($4+0 > 0 || $5+0 >0 ) print $1"\t"$2-1"\t"$2"\t"$4/($4+$5),
 $4+$5;}' > Neil.DKO.6.myCpG.bed &
-cat Neil.DKO.7.myCpG.txt | awk '{OFS="\t";if($4+0 > 0 || $5+0 >0 ) print $1"\t"$2-1"\t"$2"\t"$3"\t"$4/($4+$5),
+cat Neil.DKO.7.myCpG.txt | awk '{OFS="\t";if($4+0 > 0 || $5+0 >0 ) print $1"\t"$2-1"\t"$2"\t"$4/($4+$5),
 $4+$5;}' > Neil.DKO.7.myCpG.bed &
-cat Neil.DKO.8.myCpG.txt | awk '{OFS="\t";if($4+0 > 0 || $5+0 >0 ) print $1"\t"$2-1"\t"$2"\t"$3"\t"$4/($4+$5),
+cat Neil.DKO.8.myCpG.txt | awk '{OFS="\t";if($4+0 > 0 || $5+0 >0 ) print $1"\t"$2-1"\t"$2"\t"$4/($4+$5),
 $4+$5;}' > Neil.DKO.8.myCpG.bed &
 
 #Filter CG with Coverage >= 10
