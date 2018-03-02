@@ -1,0 +1,16 @@
+#Methylome
+track type=bigWig name='ES.WT.cov10.1' description='ES.WT.cov10.1' visibility="full" autoScale=off viewLimits=0:1 maxHeightPixels=32:32:11 color=0,0,250 bigDataUrl=http://imbc1.imb.uni-mainz.de/~tandrean/mm/ES.WT.cov.major.egual.10.bigWig
+track type=bigWig name='ES.WT.cov10.2' description='ES.WT.cov10.2' visibility="full" autoScale=off viewLimits=0:1 maxHeightPixels=32:32:11 color=0,0,250 bigDataUrl=http://imbc1.imb.uni-mainz.de/~tandrean/mm/ES.WT.Neil.cov.major.egual.10.bigWig
+track type=bigWig name='Gadd45.cov10.TKO2' description='G45.cov10.TKO2' visibility="full" autoScale=off viewLimits=0:1 maxHeightPixels=32:32:11 color=250,0,0 bigDataUrl=http://imbc1.imb.uni-mainz.de/~tandrean/mm/G45.TKO2.cov.major.egual.10.bigWig
+track type=bigWig name='Gadd45.cov10.TKO3' description='G45.cov10.TKO3' visibility="full" autoScale=off viewLimits=0:1 maxHeightPixels=32:32:11 color=250,0,0 bigDataUrl=http://imbc1.imb.uni-mainz.de/~tandrean/mm/G45.TKO3.cov.major.egual.10.bigWig
+
+#RNA-seq
+track type=bigWig name='RNA-seq.WT.1' description='RNA-seq.WT.1' visibility="full" autoScale=off viewLimits=0:10 maxHeightPixels=32:32:11 color=0,0,250 bigDataUrl=http://imbc1.imb.uni-mainz.de/~tandrean/mm/imb_niehrs_2014_01_01B_mESC_untreated_Control_281___mm10_RPMscaled.bw
+track type=bigWig name='RNA-seq.WT.2' description='RNA-seq.WT.2' visibility="full" autoScale=off viewLimits=0:10 maxHeightPixels=32:32:11 color=0,0,250 bigDataUrl=http://imbc1.imb.uni-mainz.de/~tandrean/mm/imb_niehrs_2014_01_02B_mESC_untreated_Control_282___mm10_RPMscaled.bw
+track type=bigWig name='RNA-seq.WT.3' description='RNA-seq.WT.3' visibility="full" autoScale=off viewLimits=0:10 maxHeightPixels=32:32:11 color=0,0,250 bigDataUrl=http://imbc1.imb.uni-mainz.de/~tandrean/mm/imb_niehrs_2014_01_03B_mESC_untreated_Control_283___mm10_RPMscaled.bw
+track type=bigWig name='Gadd45.TKO1' description='G45.TKO1' visibility="full" autoScale=off viewLimits=0:10 maxHeightPixels=32:32:11 color=250,0,0
+bigDataUrl=http://imbc1.imb.uni-mainz.de/~tandrean/mm/imb_niehrs_2014_01_04B_mESC_untreated_TKO_36___mm10_RPMscaled.bw
+track type=bigWig name='Gadd45.TKO2' description='G45.TKO2' visibility="full" autoScale=off viewLimits=0:10 maxHeightPixels=32:32:11 color=250,0,0
+bigDataUrl=http://imbc1.imb.uni-mainz.de/~tandrean/mm/imb_niehrs_2014_01_05B_mESC_untreated_TKO_227___mm10_RPMscaled.bw
+track type=bigWig name='Gadd45.TKO3' description='G45.TKO3' visibility="full" autoScale=off viewLimits=0:10 maxHeightPixels=32:32:11 color=250,0,0
+bigDataUrl=http://imbc1.imb.uni-mainz.de/~tandrean/mm/imb_niehrs_2014_01_06B_mESC_untreated_TKO_228___mm10_RPMscaled.bw
