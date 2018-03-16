@@ -43,6 +43,10 @@ comm -12 Gadd45.tko1.CpG_report.sort.bed.cov.major.egual.10.Id  Gadd45.tko3.CpG_
 cat Common.CG.all.sampels.sort.txt | awk -F "_" '{print $1"\t"$2"\t"$3}' > Common.CG.all.sampels.sort.bed &
 cat Common.CG.all.sampels.sort.bed | sort -k 1,1 -k2,2n  > Common.CG.all.sampels.sort.as.bed &
 
+##############################################
+## awk -v OFS="\t" to avoid tab in every step#
+##############################################
+
 
 #Extract
 for i in *cov.major.egual.10; do bedtools intersect -a $i -b Common.CG.all.sampels.sort.as.bed > $i.common; done &
