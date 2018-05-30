@@ -61,3 +61,14 @@ cat Master.Table.wtNeil.wtGadd.tko1.tko2.tko3.txt | awk '{print $1"\t"$2"\t"$3"\
 cat Master.Table.wtNeil.wtGadd.tko1.tko2.tko3.Mean.Values.txt | awk '{print $1"\t"$2"\t"$3"\t"$5-$4}' > Master.Table.wtNeil.wtGadd.tko1.tko2.tko3.Mean.Values.and.Delta.TKO.minus.WT.txt  &
 
 #Convert to bigWig
+
+
+
+
+##Now do the same in bins of 100 bp
+#
+bedtools intersect -a Master.Table.wtNeil.wtGadd.tko1.tko2.tko3.Mean.Values.and.Delta.TKO.minus.WT.bedgraph -b mm10.binned.100.bp.ready.bed -wb | awk  '{print $8"\t"$4}' > mm10.binned.100.bp.ready.CpG.mean.values.3.TKO.minus.WT
+datamash-1.3/datamash -g 1 mean 2 <mm10.binned.100.bp.ready.CpG.mean.values.3.TKO.minus.WT  > Master.Table.wtNeil.wtGadd.tko1.tko2.tko3.Mean.Values.and.Delta.TKO.minus.WT.bin100bp.txt
+cat Master.Table.wtNeil.wtGadd.tko1.tko2.tko3.Mean.Values.and.Delta.TKO.minus.WT.bin100bp.txt | awk -F "_" '{print $1"\t"$2"\t"$3"\t"$4}' > cat Master.Table.wtNeil.wtGadd.tko1.tko2.tko3.Mean.Values.and.Delta.TKO.minus.WT.bin100bp.bed
+
+
