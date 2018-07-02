@@ -26,4 +26,4 @@ export mark=`sed -n "$SLURM_ARRAY_TASK_ID"p list.markers`
 computeMatrix reference-point -S GSM1863079_ESC_DKO_hMeDIP.fastq_monoExt300.mm10.No.Overlap.bw -R Hyper.DMRs.bin.100.delta.30.min.2.CpG.mm10.merged.consecutive.bed -out GSM1863079_ESC_DKO_hMeDIP.in.HyperMe.DMRs.mm10.gz -a 5000 -b 5000 --outFileSortedRegions GSM1863079_ESC_DKO_hMeDIP.in.HyperMe.DMRs.mm10.bed--missingDataAsZero --skipZeros
 
 
-plotHeatmap -m Matrix.$mark.gz -out Matrix.$mark.png ---colorList cornflowerblue,yellow,red --missingDataColor white
+plotHeatmap -m GSM1863079_ESC_DKO_hMeDIP.in.HyperMe.DMRs.mm10.gz -out GSM1863079_ESC_DKO_hMeDIP.in.HyperMe.DMRs.mm10.png ---colorList cornflowerblue,yellow,red --missingDataColor white
