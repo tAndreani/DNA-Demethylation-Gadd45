@@ -21,10 +21,10 @@ we use 4mln lines because the information of every read within the fastq file ta
 ## Alignment (parallelization) and extraction of CGH, CHG and CHH  
 
 #Gadd45.TKO2 494 files  
-$bismark/bismark --bowtie2 -n 1 -I 0 -X 1000 --score_min L,0,-0.6 $genome/genome -1 $gadd45Tko2/R1/$fastq_file -2 $gadd45Tko2/R2/$fastq_file -o $gadd45Tko2/Alignment/  
+`$bismark/bismark --bowtie2 -n 1 -I 0 -X 1000 --score_min L,0,-0.6 $genome/genome -1 $gadd45Tko2/R1/$fastq_file -2 $gadd45Tko2/R2/$fastq_file -o $gadd45Tko2/Alignment/`  
 
 #mESC Wild Type 502 files  
-$bismark/bismark --bowtie2 -n 1 -I 0 -X 1000 --score_min L,0,-0.6 $genome/genome -1 $mESC/R1/$fastq_file -2 $mESC/R2/$fastq_file -o $mESC/Alignment/  
+`$bismark/bismark --bowtie2 -n 1 -I 0 -X 1000 --score_min L,0,-0.6 $genome/genome -1 $mESC/R1/$fastq_file -2 $mESC/R2/$fastq_file -o $mESC/Alignment/`  
 
 ## Call of Differentially Methylated Regions (DMRs) with MethylKit and Methpipe
 
