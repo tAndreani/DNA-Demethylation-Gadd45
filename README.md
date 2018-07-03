@@ -15,8 +15,8 @@ we use 4mln lines because the information of every read within the fastq file ta
 
 
 #Select reads with a quality value > 20 All the Reads  
-`trim_galore --paired --trim1 $gadd45Tko1/AS-180617-LR-27523_R1.fastq.gz $gadd45Tko1/AS-180617-LR-27523_R2.fastq.gz`
-`trim_galore --paired --trim1 $mESC/AS-180620-LR-28032_R1.fastq.gz $mESC/AS-180620-LR-28032_R2.fastq.gz`
+`trim_galore --paired --trim1 $gadd45Tko1/AS-180617-LR-27523_R1.fastq.gz $gadd45Tko1/AS-180617-LR-27523_R2.fastq.gz`  
+`trim_galore --paired --trim1 $mESC/AS-180620-LR-28032_R1.fastq.gz $mESC/AS-180620-LR-28032_R2.fastq.gz`  
 
 ## Alignment (parallelization) and extraction of CGH, CHG and CHH
 
