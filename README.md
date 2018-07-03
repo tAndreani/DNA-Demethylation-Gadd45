@@ -13,16 +13,16 @@ we use 4mln lines because the information of every read within the fastq file ta
 `export fastq_file_mESC`=`sed -n "$SLURM_ARRAY_TASK_ID"p list.files.mESC`  
 
 #Select reads with a quality value > 20 All the Reads    
-`trim_galore --paired --trim1 $gadd45Tko2/$fastq_file_G45.R1.fastq.gz $gadd45Tko1/$fastq_file_G45.R2.fastq.gz`  
-`trim_galore --paired --trim1 $mESC/$fastq_file_mESC.R1.fastq.gz $mESC/$fastq_file_mESC.R2.gz`  
+`trim_galore --paired --trim1 $fastq_file_G45.R1.fastq.gz $fastq_file_G45.R2.fastq.gz`  
+`trim_galore --paired --trim1 $fastq_file_mESC.R1.fastq.gz $fastq_file_mESC.R2.gz`  
 
 ## Alignment (parallelization) and extraction of CGH, CHG and CHH  
 
 #Gadd45.TKO2 494 files  
-`$bismark/bismark --bowtie2 -n 1 -I 0 -X 1000 --score_min L,0,-0.6 $genome/genome -1 $gadd45Tko2/R1/$fastq_file -2 $gadd45Tko2/R2/$fastq_file -o $gadd45Tko2/Alignment/`  
+`bismark --bowtie2 -n 1 -I 0 -X 1000 --score_min L,0,-0.6 genome -1 $fastq_file_G45.R1.fastq.gz -2 $fastq_file_G45.R2.fastq.gz -o Alignment/`  
 
 #mESC Wild Type 502 files  
-`$bismark/bismark --bowtie2 -n 1 -I 0 -X 1000 --score_min L,0,-0.6 $genome/genome -1 $mESC/R1/$fastq_file -2 $mESC/R2/$fastq_file -o $mESC/Alignment/`  
+`bismark --bowtie2 -n 1 -I 0 -X 1000 --score_min L,0,-0.6 genome -1  $fastq_file_mESC.R1.fastq.gz -2  $fastq_file_mESC.R2.fastq.gz -o Alignment/`  
 
 ## Call of Differentially Methylated Regions (DMRs) with MethylKit and Methpipe
 
