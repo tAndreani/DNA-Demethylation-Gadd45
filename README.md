@@ -54,7 +54,7 @@ we use 4mln lines because the information of every read within the fastq file ta
 
 
 ## Call of Differentially Methylated Regions (DMRs) with MethylKit from the bash run:
-Rscript MethylKit.Analysis.R
+`Rscript MethylKit.Analysis.R`  
 
 ## Downstream post-processing analysis (enrichment at regulatory features, Oxidative products DIP-seq peaks after Tet and Tdg knock out, Rloops etc..)
 
