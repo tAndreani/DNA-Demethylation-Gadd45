@@ -67,22 +67,19 @@ fread.gzipped<-function(filepath,...){
 ########################################
 setwd("/gpfs/fs6/jgu-cbdm/andradeLab/scratch/tandrean/Data/WGBS/Gadd45.TKO/Gadd45.tko.Quality.Filter/Extraction/MethylKit")
 
-#Files are the output of Bismarck i.e. the Cytosine Report Files (example Gadd45.tko1.CpG_report.txt) with a ToT CG of 43841737 in each file
-file.list <- list("control1.myCpG.gz","test1.myCpG.gz","test2.myCpG.gz","test3.myCpG.gz")
-myobj=readBismarkCytosineReport(file.list,sample.id=list("ctrl1","test1","test2","test3"),assembly="mm10",treatment=c(0,1,1,1))
-tiles <- tileMethylCounts(myobj,cov.bases = 10, win.size = 200,step.size = 200)
-meth=unite(tiles,destrand=TRUE)
-pdf('All.samples.Correlation.Tiles.200.pdf')
+#Files are the output of Bismarck i.e. the Cytosine Report Files (example Gadd45.tko2.CpG_report.txt) with a ToT CG of 43841737 in each file
+file.list <- list("control1.myCpG.gz","control2.myCpG.gz","test2.myCpG.gz","test3.myCpG.gz")
+myobj=readBismarkCytosineReport(file.list,sample.id=list("ctrl1","ctrl2","test2","test3"),assembly="mm10",treatment=c(0,0,1,1))
+tiles <- tileMethylCounts(myobj,cov.bases = 2, win.size = 100,step.size = 100)
+meth=unite(tiles,destrand=FALSE)
+pdf('Samples.ctrl1.ctrl2.test2.test3.Correlation.Tiles.100.pdf')
 getCorrelation(meth, plot = T)
 dev.off()
-pdf('All.samples.PCA.Tiles.200.pdf')
+
+pdf('Samples.ctrl1.ctrl2.test2.test3.Correlation.Tiles.100.pdf')
 PCASamples(meth)
 dev.off()
-myDiff <- calculateDiffMeth(meth)
-myDiff25p.hyper <- getMethylDiff(myDiff, difference = 15,qvalue = 0.05, type = "hyper")
-myDiff25p.hypo <- getMethylDiff(myDiff, difference = 15,qvalue = 0.05, type = "hypo")
-Hyper <- getData(myDiff25p.hyper)
-Hypo <- getData(myDiff25p.hypo)
-write.table(myDiff,"Background.Gadd45.TKO.cov.10.Tiles.200.delta.15.txt",quote=FALSE,col.names=T,row.names=F,sep="\t") ##For Backgroung
-write.table(myDiff25p.hyper,"Hyper.DMRs.Gadd45.TKO.cov.10.Tiles.200.delta.15.txt",quote=FALSE,col.names=T,row.names=F,sep="\t")
-write.table(myDiff25p.hypo,"Hypo.DMRs.Gadd45.TKO.cov.10.Tiles.200.delta.15.txt",quote=FALSE,col.names=T,row.names=F,sep="\t")
+
+write.table(myDiff,"Background.Gadd45.TKO.cov.10.Tiles.100.delta.30.txt",quote=FALSE,col.names=T,row.names=F,sep="\t") ##For Backgroung
+write.table(myDiff25p.hyper,"Hyper.DMRs.Gadd45.TKO.cov.10.Tiles.100.delta.30.FDR.5%.txt",quote=FALSE,col.names=T,row.names=F,sep="\t")
+write.table(myDiff25p.hypo,"Hypo.DMRs.Gadd45.TKO.cov.10.Tiles.100.delta.30.FDR.5%.txt",quote=FALSE,col.names=T,row.names=F,sep="\t")
