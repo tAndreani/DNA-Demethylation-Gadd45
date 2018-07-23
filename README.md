@@ -36,10 +36,10 @@ we use 4mln lines because the information of every read within the fastq file ta
 
 #Merge the samples  
 #sort for bismark by name always  
-`samtools merge -n $gadd45Tko1/Alignment/Gadd45.tko1.bam $gadd45Tko2/Alignment/x*.bam  `
-`samtools merge -n $gadd45Tko2/Alignment/Gadd45.tko2.bam $gadd45Tko3/Alignment/x*.bam  `
-`samtools merge -n $gadd45Tko3/Alignment/mESC1.bam $mESC1/Alignment/x*.bam  `
-`samtools merge -n $mESC/Alignment/mESC2.bam $mESC2/Alignment/x*.bam`
+`samtools merge -n $gadd45Tko1/Alignment/Gadd45.tko1.bam $gadd45Tko2/Alignment/x*.bam  `  
+`samtools merge -n $gadd45Tko2/Alignment/Gadd45.tko2.bam $gadd45Tko3/Alignment/x*.bam  `  
+`samtools merge -n $gadd45Tko3/Alignment/mESC1.bam $mESC1/Alignment/x*.bam  `  
+`samtools merge -n $mESC/Alignment/mESC2.bam $mESC2/Alignment/x*.bam`  
 
 #Extraction  
 #Gadd45.TKO samples    
