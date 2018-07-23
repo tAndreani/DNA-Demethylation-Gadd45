@@ -35,7 +35,11 @@ we use 4mln lines because the information of every read within the fastq file ta
 `bismark --bowtie2 -n 1 -I 0 -X 1000 --score_min L,0,-0.6 genome -1  $fastq_file_mESC2.R1.fastq.gz -2  $fastq_file_mESC2.R2.fastq.gz -o Alignment/`  
 
 #Merge the samples  
-
+#sort for bismark by name always  
+`samtools merge -n $gadd45Tko1/Alignment/Gadd45.tko1.bam $gadd45Tko2/Alignment/x*.bam  `
+`samtools merge -n $gadd45Tko2/Alignment/Gadd45.tko2.bam $gadd45Tko3/Alignment/x*.bam  `
+`samtools merge -n $gadd45Tko3/Alignment/mESC1.bam $mESC1/Alignment/x*.bam  `
+`samtools merge -n $mESC/Alignment/mESC2.bam $mESC2/Alignment/x*.bam`
 
 #Extraction  
 #Gadd45.TKO samples    
