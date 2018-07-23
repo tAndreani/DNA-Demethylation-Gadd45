@@ -23,7 +23,7 @@ we use 4mln lines because the information of every read within the fastq file ta
 `trim_galore --paired --trim1 $fastq_file_mESC1.R1.fastq.gz $fastq_file_mESC1.R2.gz`  
 `trim_galore --paired --trim1 $fastq_file_mESC2.R1.fastq.gz $fastq_file_mESC2.R2.gz`  
 
-## Alignment (parallelization) and extraction of CGH, CHG and CHH  
+## Alignment (parallelization), merging and extraction of CGH, CHG and CHH  
 
 #Alignment  
 #Gadd45.TKO samples  
