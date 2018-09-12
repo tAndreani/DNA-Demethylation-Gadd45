@@ -80,6 +80,15 @@ pdf('Samples.ctrl1.ctrl2.test2.test3.Correlation.Tiles.100.pdf')
 PCASamples(meth)
 dev.off()
 
+covariates=data.frame(experiment=c(0,1,0,0))
+myDiff <- calculateDiffMeth(meth,covariates=covariates,overdispersion=c("MN"),effect=c("predicted"),test=c("Chisq"),num.cores=4)
+myDiff25p.hyper <- getMethylDiff(myDiff, difference = 30,qvalue = 0.05, type = "hyper")
+myDiff25p.hypo <- getMethylDiff(myDiff, difference = 30,qvalue = 0.05, type = "hypo")
+Hyper <- getData(myDiff25p.hyper)
+Hypo <- getData(myDiff25p.hypo)
+
+
+
 write.table(myDiff,"Background.Gadd45.TKO.cov.10.Tiles.100.delta.30.txt",quote=FALSE,col.names=T,row.names=F,sep="\t") ##For Backgroung
 write.table(myDiff25p.hyper,"Hyper.DMRs.Gadd45.TKO.cov.10.Tiles.100.delta.30.FDR.5%.txt",quote=FALSE,col.names=T,row.names=F,sep="\t")
 write.table(myDiff25p.hypo,"Hypo.DMRs.Gadd45.TKO.cov.10.Tiles.100.delta.30.FDR.5%.txt",quote=FALSE,col.names=T,row.names=F,sep="\t")
