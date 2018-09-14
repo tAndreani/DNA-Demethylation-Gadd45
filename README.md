@@ -72,4 +72,4 @@ $bismark/bismark_methylation_extractor -p --ignore 5 --ignore_r2 5 --ample_memor
 
 
 
-## Heatmap with deepTools 3.0.1
+## Heatmap and frequency plot with deepTools 3.0.1
