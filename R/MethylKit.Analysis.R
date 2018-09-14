@@ -1,6 +1,6 @@
 library(methylKit)
 
-#This part to select CpG with a given coverage threshold is taken from the methylkit developer Altuna: 
+#This part to read the cytosine report files and select CpG with a given coverage threshold is taken from the methylkit developer Altuna: 
 #https://gist.github.com/al2na/4839e615e2401d73fe51
 
 readBismarkCytosineReport<-function(location,sample.id,assembly="unknown",treatment,
