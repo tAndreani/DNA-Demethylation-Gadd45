@@ -78,7 +78,7 @@ pdf('Samples.ctrl1.ctrl2.test2.test3.Correlation.Tiles.100.pdf')
 getCorrelation(meth, plot = T)
 dev.off()
 
-pdf('Samples.ctrl1.ctrl2.test2.test3.Correlation.Tiles.100.pdf')
+pdf('Samples.ctrl1.ctrl2.test2.test3.PCA.Tiles.100.pdf')
 PCASamples(meth)
 dev.off()
 
