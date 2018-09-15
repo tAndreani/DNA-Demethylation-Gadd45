@@ -62,7 +62,7 @@ bismark_methylation_extractor -p --ignore 5 --ignore_r2 5 --ample_memory --bedGr
 
 
 
-## Call of Differentially Methylated Regions (DMRs) with MethylKit from the bash run (contents of the script in the folder "R"):
+## Call of Differentially Methylated Regions (DMRs) with MethylKit (contents of the script in the folder "R"):
 `Rscript DMRs.Estimation.r`  
 
 ## Downstream post-processing analysis (enrichment at regulatory features, Oxidative products DIP-seq peaks after Tet and Tdg knock out, Rloops etc..)
