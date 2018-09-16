@@ -17,6 +17,25 @@ export fastq_file_mESC1=`sed -n "$SLURM_ARRAY_TASK_ID"p list.files.mESC.1`
 export fastq_file_mESC2=`sed -n "$SLURM_ARRAY_TASK_ID"p list.files.mESC.2`  
 ```
 
+### Bash script template for Job array
+```
+#!/bin/sh
+
+#SBATCH --job-name=DMRtko        # job name
+#SBATCH --array=1-494            # Number of Job (according to the number of splitted files for each sample
+#SBATCH --nodes=1                # nodes
+#SBATCH -p andrade               # queue
+#SBATCH -A jgu-cbdm
+#SBATCH -c 5                     # cores
+#SBATCH --mem=10000M             # memory
+#SBATCH --time=72:00:00          # time
+#SBATCH --error=DMR.tko.err      # error file name
+#SBATCH --output=DMR.tko.out     # output file name
+#SBATCH --mail-user=t.andreani@imb-mainz.de  # email
+#SBATCH --mail-type=ALL                      # type notification
+```
+these commands are used for all the steps of the pre processing of the methylome data to parallelize the job
+
 ### Select reads with a quality value > 20 All the Reads    
 ```
 trim_galore --paired --trim1 $fastq_file_G452.R1.fastq.gz $fastq_file_G452.R2.fastq.gz    
