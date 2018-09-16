@@ -22,7 +22,7 @@ export fastq_file_mESC2=`sed -n "$SLURM_ARRAY_TASK_ID"p list.files.mESC.2`
 #!/bin/sh
 
 #SBATCH --job-name=DMRtko        # job name
-#SBATCH --array=1-494            # Number of Job (according to the number of splitted files for each sample
+#SBATCH --array=1-494            # Number of Job (according to the number of splitted files for each sample)
 #SBATCH --nodes=1                # nodes
 #SBATCH -p andrade               # queue
 #SBATCH -A jgu-cbdm
