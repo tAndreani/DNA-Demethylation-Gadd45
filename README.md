@@ -106,13 +106,13 @@ bedtools shuffle -incl background.file.with.all.DNA.regions.tested.bed -i Hyper.
 #Observed
 for i in *UCSC.feature.bed;
 do
-  bedtools intersect -a Hyper.DMRs.G45.TKO.100bp.2CpG.Delta30.FDR.0.05.bed -b $i -wa | sort -u > $i.in.Hyper.DMRs.bed; 
+  bedtools intersect -a Hyper.DMRs.G45.TKO.100bp.2CpG.Delta30.FDR.0.05.bed -b $i -wa | sort -u > Hyper.DMRs.in.$i; 
 done   
 
 #Expected
 for i in *UCSC.feature.bed;
 do
-  bedtools intersect -a RANDOM.bed -b $i -wa | sort -u > $i.in.RANDOM.bed;
+  bedtools intersect -a RANDOM.bed -b $i -wa | sort -u > RANDOM.regions.in.$i;
 done  
 ```
 
