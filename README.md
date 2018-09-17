@@ -110,7 +110,6 @@ for i in *UCSC.feature.bed; do bedtools intersect -a RANDOM.bed -b $i -wa | sort
 export OxFeatures=`sed -n "$SLURM_ARRAY_TASK_ID"p list.files.heatMap`  
 
 computeMatrix reference-point --referencePoint center -b 5000 -a 5000
- 
  -R Hyper.DMRs.G45.TKO.100bp.2CpG.Delta30.FDR.0.05.bed
  -S $OxFeatures ## Oxidative efeature from 'list.files.heatMap in the List.Files.Job.Array folder' 
  --skipZeros
