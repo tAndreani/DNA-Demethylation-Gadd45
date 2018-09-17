@@ -49,7 +49,7 @@ trim_galore --paired --trim1 $fastq_file_G453.R1.fastq.gz $fastq_file_G453.R2.fa
 trim_galore --paired --trim1 $fastq_file_mESC1.R1.fastq.gz $fastq_file_mESC1.R2.gz   
 trim_galore --paired --trim1 $fastq_file_mESC2.R1.fastq.gz $fastq_file_mESC2.R2.gz   
 ```
-## Alignment (parallelization), merging and extraction of CGH, CHG and CHH  
+## Alignment, merging and extraction of CGH, CHG and CHH  
 
 ### Alignment  
 #### Gadd45.TKO samples  
