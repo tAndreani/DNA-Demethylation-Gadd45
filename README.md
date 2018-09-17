@@ -34,7 +34,7 @@ export fastq_file_mESC2=`sed -n "$SLURM_ARRAY_TASK_ID"p list.files.mESC.2`
 #SBATCH --mail-user=t.andreani@imb-mainz.de  # email
 #SBATCH --mail-type=ALL                      # type notification
 ```
-these commands are used for all the steps of the pre processing of the methylome data to parallelize the job
+the commands above are used for all the steps of the pre processing of the methylome data to parallelize the job in the Slurm queue system environment of Mogon   
 
 ### Select reads with a quality value > 20 All the Reads    
 ```
