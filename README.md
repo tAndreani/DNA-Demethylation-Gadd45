@@ -95,7 +95,7 @@ bedtools shuffle -incl background.file.with.all.DNA.regions.tested.bed -i HyperM
 
 ## Heatmap and frequency plot with deepTools 3.0.1  
 
-### For Heatmap figure 2-D
+#### For Heatmap figure 2-D
 ```
 computeMatrix reference-point --referencePoint center -b 5000 -a 5000
  
