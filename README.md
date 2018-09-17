@@ -97,11 +97,12 @@ bismark_methylation_extractor -p --ignore 5 --ignore_r2 5 --ample_memory --bedGr
 ## Downstream post-processing analysis (enrichment at regulatory features from Table Browser UCSC)  
 
 ```
-#Random DMRs were obtained from bedtools sampling the same amount of DMRs as the number of the significant ones (6904) with the same length  
+#Create Random set regions similar to the DMRs in terms of numbers (6904), length and CG composition to compute the expectation. This task is performed with bedtools shuffle:  
 
 bedtools shuffle -incl background.file.with.all.DNA.regions.tested.bed -i Hyper.DMRs.G45.TKO.100bp.2CpG.Delta30.FDR.0.05.bed -g mm10.chr.sizes > RANDOM.bed
 
-#The Intersection of the Hyper-DMRs in each feature is obtained:
+#The Intersection of the Hyper-DMRs in each feature is obtained:  
+
 #Observed
 for i in *UCSC.feature.bed;
 do
