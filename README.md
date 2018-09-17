@@ -1,7 +1,7 @@
 ## Methylome data pre-processing and downstream analysis in Co mESCs and Gadd45-TKO
 Collection of scripts to detect Differentially Methylated Regions and perform downstream enrichment analysis at several genomic features of mouse ES cells.
 
-## Quality Control and Trim
+## Set up the files for Job Array
 Before performing the quality control we want to split the fastq files in small pieces of 1mln reads in order to parallelize all the analysis:
 
 `zcat example.fq.gz | split -4000000 &` 
@@ -39,7 +39,7 @@ export Genomicfeatures  =`sed -n "$SLURM_ARRAY_TASK_ID"p List.Files.Job.Array`
 ```
 The bash commands above are used for all the steps of the pre and when required in the post processing (for heatMap and frquency plot) of the methylome data using Job Arrays in the Slurm queue system environment of Mogon.     
 
-## Select reads with a quality value > 20 All the Reads    
+## Quality Control and Trim: select reads with a quality value > 20 in all the reads and remove illumina adapters    
 
 #### Gadd45.TKO samples  
 ```
