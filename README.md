@@ -12,9 +12,12 @@ we use 4mln lines because the information of every read within the fastq file ta
 ```
 export fastq_file_G452=`sed -n "$SLURM_ARRAY_TASK_ID"p list.files.gadd45.2`  
 export fastq_file_G453=`sed -n "$SLURM_ARRAY_TASK_ID"p list.files.gadd45.3`  
-
 export fastq_file_mESC1=`sed -n "$SLURM_ARRAY_TASK_ID"p list.files.mESC.1`  
 export fastq_file_mESC2=`sed -n "$SLURM_ARRAY_TASK_ID"p list.files.mESC.2`  
+export OxFeatures=`sed -n "$SLURM_ARRAY_TASK_ID"p list.files.heatMap`  
+export Genomicfeatures=`sed -n "$SLURM_ARRAY_TASK_ID"p List.Files.Job.Array`  
+
+
 ```
 
 ### Bash script template for Job array
@@ -126,13 +129,11 @@ findMotifsGenome.pl Hyper.DMRs.G45.TKO.100bp.2CpG.Delta30.FDR.0.05.Enhancer.5caC
 
 ## Heatmap and frequency plot with deepTools 3.0.1  
 
-#### For Heatmap figure 2-D
+#### For Heatmap of Hyper-DMRs at 5mC oxidative products in figure 2-D 
 ```
-export OxFeatures=`sed -n "$SLURM_ARRAY_TASK_ID"p list.files.heatMap`  
-
 computeMatrix reference-point --referencePoint center -b 5000 -a 5000
  -R Hyper.DMRs.G45.TKO.100bp.2CpG.Delta30.FDR.0.05.bed
- -S $OxFeatures ## Oxidative efeature from 'list.files.heatMap in the List.Files.Job.Array folder' 
+ -S $OxFeatures ## Oxidative feature from 'list.files.heatMap in the List.Files.Job.Array folder' 
  --skipZeros
  -out Matrix.$OxFeatures.gz
  --outFileSortedRegions regions.$OxFeatures.bed
@@ -141,21 +142,19 @@ plotHeatmap
  -m Matrix.$OxFeatures.gz 
  -out Matrix.$OxFeatures.png --colorList --colorList cornflowerblue,yellow,red --missingDataColor white   
 ```
-#### For frequency plot figure 2-F
+#### For frequency plot at several genomic features figure 2-F
 
 ```
-export features=`sed -n "$SLURM_ARRAY_TASK_ID"p List.Files.Job.Array`  
-
 computeMatrix reference-point --referencePoint center -b 5000 -a 5000
- -R $features ## feature from 'list.files.frequency.plot in the List.Files.Job.Array folder'
+ -R $Genomicfeatures ## feature from 'list.files.frequency.plot in the List.Files.Job.Array folder'
  -S G45.TKO.minus.ESCsWT.bin100bp.bigWig 
  --skipZeros
- -out Matrix.$features.gz
- --outFileSortedRegions regions.$features.bed
+ -out Matrix.$Genomicfeatures.gz
+ --outFileSortedRegions regions.$Genomicfeatures.bed
 
 plotHeatmap
- -m Matrix.$features.gz 
- -out Matrix.$features.png --colorList --colorList cornflowerblue,yellow,red --missingDataColor white   
+ -m Matrix.$Genomicfeatures.gz 
+ -out Matrix.$Genomicfeatures.png --colorList --colorList cornflowerblue,yellow,red --missingDataColor white   
  ```
   
 
