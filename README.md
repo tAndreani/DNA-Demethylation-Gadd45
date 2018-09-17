@@ -24,7 +24,7 @@ export Genomicfeatures  =`sed -n "$SLURM_ARRAY_TASK_ID"p List.Files.Job.Array`
 ```
 #!/bin/sh
 
-#SBATCH --job-name=DMRtko        # job name
+#SBATCH --job-name=Alignment        # job name
 #SBATCH --array=1-494            # Number of Job (according to the number of splitted files for each sample)
 #SBATCH --nodes=1                # nodes
 #SBATCH -p andrade               # queue
