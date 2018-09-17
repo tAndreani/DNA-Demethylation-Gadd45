@@ -1,4 +1,4 @@
-## Methylome Data Processing and Analysis in mESCs upon Gadd45a,b,g Proteins Knock Out
+## Methylome Data Processing and Analysis in Co mESCs and Gadd45a,b,g Knock Out
 Collection of scripts to detect Differentially Methylated Regions and perform downstream enrichment analysis at several genomic features of mouse ES cells.
 
 ## Quality Control and Trim
