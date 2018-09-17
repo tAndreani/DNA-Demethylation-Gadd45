@@ -91,8 +91,7 @@ bismark_methylation_extractor -p --ignore 5 --ignore_r2 5 --ample_memory --bedGr
 
 bedtools shuffle -incl background.file.with.all.DNA.regions.tested.bed -i Hyper.DMRs.G45.TKO.100bp.2CpG.Delta30.FDR.0.05.bed -g mm10.chr.sizes > Hyper.DMRs.RANDOM.bed
 
-Intersection for each feature is obtained:
-
+#The Intersection of the Hyper-DMRs in each feature is obtained:
 #Observed
 for i in *UCSC.feature.bed; do bedtools intersect -a Hyper.DMRs.G45.TKO.100bp.2CpG.Delta30.FDR.0.05.bed -b $i -wa | sort -u > $i.in.Hyper.DMRs.bed; done   
 
