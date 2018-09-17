@@ -105,10 +105,16 @@ bedtools shuffle -incl background.file.with.all.DNA.regions.tested.bed -i Hyper.
 
 #The Intersection of the Hyper-DMRs in each feature is obtained:
 #Observed
-for i in *UCSC.feature.bed; do bedtools intersect -a Hyper.DMRs.G45.TKO.100bp.2CpG.Delta30.FDR.0.05.bed -b $i -wa | sort -u > $i.in.Hyper.DMRs.bed; done   
+for i in *UCSC.feature.bed;
+do
+  bedtools intersect -a Hyper.DMRs.G45.TKO.100bp.2CpG.Delta30.FDR.0.05.bed -b $i -wa | sort -u > $i.in.Hyper.DMRs.bed; 
+done   
 
 #Expected
-for i in *UCSC.feature.bed; do bedtools intersect -a RANDOM.bed -b $i -wa | sort -u > $i.in.RANDOM.bed; done  
+for i in *UCSC.feature.bed;
+do
+  bedtools intersect -a RANDOM.bed -b $i -wa | sort -u > $i.in.RANDOM.bed;
+done  
 ```
 
 ## Motif Analysis with HOMER (fig. 3-A)
