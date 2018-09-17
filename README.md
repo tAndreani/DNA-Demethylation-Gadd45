@@ -37,10 +37,15 @@ export fastq_file_mESC2=`sed -n "$SLURM_ARRAY_TASK_ID"p list.files.mESC.2`
 The commands above are used for all the steps of the pre processing of the methylome data to parallelize the job in the Slurm queue system environment of Mogon.   
 
 ### Select reads with a quality value > 20 All the Reads    
+
+#### Gadd45.TKO samples  
 ```
 trim_galore --paired --trim1 $fastq_file_G452.R1.fastq.gz $fastq_file_G452.R2.fastq.gz    
 trim_galore --paired --trim1 $fastq_file_G453.R1.fastq.gz $fastq_file_G453.R2.fastq.gz  
+```
+#### mESC Wild Type samples   
 
+```
 trim_galore --paired --trim1 $fastq_file_mESC1.R1.fastq.gz $fastq_file_mESC1.R2.gz   
 trim_galore --paired --trim1 $fastq_file_mESC2.R1.fastq.gz $fastq_file_mESC2.R2.gz   
 ```
@@ -59,11 +64,15 @@ bismark --bowtie2 -n 1 -I 0 -X 1000 --score_min L,0,-0.6 genome -1  $fastq_file_
 bismark --bowtie2 -n 1 -I 0 -X 1000 --score_min L,0,-0.6 genome -1  $fastq_file_mESC2.R1.fastq.gz -2  $fastq_file_mESC2.R2.fastq.gz -o Alignment/   
 ```
 
-### Merge the samples  
-#### sort for bismark by name always  
+### Merge the samples sorting for bismark by name always 
+
+#### Gadd45.TKO samples  
 ```
 samtools merge -n $gadd45Tko2/Alignment/Gadd45.tko2.bam $gadd45Tko2/Alignment/x*.bam    
-samtools merge -n $gadd45Tko3/Alignment/Gadd45.tko3.bam $gadd45Tko3/Alignment/x*.bam    
+samtools merge -n $gadd45Tko3/Alignment/Gadd45.tko3.bam $gadd45Tko3/Alignment/x*.bam  
+```
+#### mESC Wild Type samples  
+```
 samtools merge -n $mESC1/Alignment/mESC1.bam $mESC1/Alignment/x*.bam    
 samtools merge -n $mESC2/Alignment/mESC2.bam $mESC2/Alignment/x*.bam    
 ```
