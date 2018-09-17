@@ -93,7 +93,7 @@ bismark_methylation_extractor -p --ignore 5 --ignore_r2 5 --ample_memory --bedGr
 
 ## Heatmap and frequency plot with deepTools 3.0.1  
 
-###For Heatmap figure 2-D
+### For Heatmap figure 2-D
 ```
 computeMatrix reference-point --referencePoint center -b 5000 -a 5000
  
@@ -107,7 +107,7 @@ plotHeatmap
  -m Matrix.$i.gz 
  -out Matrix.$i.png --colorList --colorList cornflowerblue,yellow,red --missingDataColor white   
 ```
-###For frequency plot figure 2-F
+### For frequency plot figure 2-F
 
 ```
 computeMatrix reference-point --referencePoint center -b 5000 -a 5000
