@@ -91,4 +91,14 @@ bismark_methylation_extractor -p --ignore 5 --ignore_r2 5 --ample_memory --bedGr
 
 
 
-## Heatmap and frequency plot with deepTools 3.0.1
+## Heatmap and frequency plot with deepTools 3.0.1  
+
+computeMatrix reference-point --referencePoint center -b 5000 -a 5000
+ -R $i ## feature from 'list feature files in the 
+ -S Master.Table.wtNeil.wtGadd.tko1.tko2.tko3.Mean.Values.and.Delta.TKO.minus.WT.bigWig 
+ --skipZeros
+ -out Matrix.All.Marks.gz
+ --outFileSortedRegions regions_methylated_.All.Marks.Paper.bed
+
+computeMatrix reference-point -S TKO.vs.WT -R LMR -out LMR.gz -b 5000 -a 5000 --outFileSortedRegions LMR.bed --missingDataAsZero --skipZeros &
+
