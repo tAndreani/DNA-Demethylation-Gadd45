@@ -85,9 +85,21 @@ bismark_methylation_extractor -p --ignore 5 --ignore_r2 5 --ample_memory --bedGr
 `Rscript DMRs.Estimation.r`  
 
 ## Downstream post-processing analysis (enrichment at regulatory features, Oxidative products DIP-seq peaks after Tet and Tdg knock out, Rloops etc..)
-### Random DMRs were obtained from bedtools sampling the same amount of DMRs as the number of the significant ones (6904) with the same lenght  
-bedtools shuffle -incl background.file.with.all.DNA.regions.tested.bed -i HyperMe.DMRs.G45.TKO.bed -g mm10.chr.sizes
 
+```
+Random DMRs were obtained from bedtools sampling the same amount of DMRs as the number of the significant ones (6904) with the same lenght  
+
+bedtools shuffle -incl background.file.with.all.DNA.regions.tested.bed -i Hyper.DMRs.G45.TKO.100bp.2CpG.Delta30.FDR.0.05.bed -g mm10.chr.sizes > Hyper.DMRs.G45.TKO.100bp.2CpG.Delta30.FDR.0.05.RANDOM.bed
+
+Intersection for each feature is obtained:
+
+Observed
+for i in *UCSC.feature.bed; do bedtools intersect -a yper.DMRs.G45.TKO.100bp.2CpG.Delta30.FDR.0.05.bed -b $i -wa | sort -u > $i.in.Hyper.DMRs.bed; done  
+
+Expected
+for i in *UCSC.feature.bed; do bedtools intersect -a yper.DMRs.G45.TKO.100bp.2CpG.Delta30.FDR.0.05.RANDOM.bed -b $i -wa | sort -u > $i.in.Hyper.DMRs.bed; done
+
+```
 
 ## Motif Analysis with HOMER 
 
