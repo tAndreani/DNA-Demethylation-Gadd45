@@ -67,7 +67,7 @@ bismark --bowtie2 -n 1 -I 0 -X 1000 --score_min L,0,-0.6 genome -1  $fastq_file_
 bismark --bowtie2 -n 1 -I 0 -X 1000 --score_min L,0,-0.6 genome -1  $fastq_file_mESC2.R1.fastq.gz -2  $fastq_file_mESC2.R2.fastq.gz -o Alignment/   
 ```
 
-## Merge the samples sorting for bismark by name always 
+### Merge the samples sorting for bismark by name always 
 
 #### Gadd45.TKO samples  
 ```
