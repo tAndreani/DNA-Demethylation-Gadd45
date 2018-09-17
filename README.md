@@ -107,31 +107,35 @@ for i in *UCSC.feature.bed; do bedtools intersect -a RANDOM.bed -b $i -wa | sort
 
 #### For Heatmap figure 2-D
 ```
+export OxFeatures=`sed -n "$SLURM_ARRAY_TASK_ID"p list.files.heatMap`  
+
 computeMatrix reference-point --referencePoint center -b 5000 -a 5000
  
  -R Hyper.DMRs.G45.TKO.100bp.2CpG.Delta30.FDR.0.05.bed
- -S $i ## feature from 'list.files.heatMap in the List.Files.Job.Array folder' 
+ -S $OxFeatures ## Oxidative efeature from 'list.files.heatMap in the List.Files.Job.Array folder' 
  --skipZeros
- -out Matrix.$i.gz
- --outFileSortedRegions regions.$i.bed
+ -out Matrix.$OxFeatures.gz
+ --outFileSortedRegions regions.$OxFeatures.bed
 
 plotHeatmap
- -m Matrix.$i.gz 
- -out Matrix.$i.png --colorList --colorList cornflowerblue,yellow,red --missingDataColor white   
+ -m Matrix.$OxFeatures.gz 
+ -out Matrix.$OxFeatures.png --colorList --colorList cornflowerblue,yellow,red --missingDataColor white   
 ```
 #### For frequency plot figure 2-F
 
 ```
+export features=`sed -n "$SLURM_ARRAY_TASK_ID"p List.Files.Job.Array`  
+
 computeMatrix reference-point --referencePoint center -b 5000 -a 5000
- -R $i ## feature from 'list.files.frequency.plot in the List.Files.Job.Array folder'
- -S G45.TKO.minus.ESCsWT.bin100bp..bigWig 
+ -R $features ## feature from 'list.files.frequency.plot in the List.Files.Job.Array folder'
+ -S G45.TKO.minus.ESCsWT.bin100bp.bigWig 
  --skipZeros
- -out Matrix.$i.gz
- --outFileSortedRegions regions.$i.bed
+ -out Matrix.$features.gz
+ --outFileSortedRegions regions.$features.bed
 
 plotHeatmap
- -m Matrix.$i.gz 
- -out Matrix.$i.png --colorList --colorList cornflowerblue,yellow,red --missingDataColor white   
+ -m Matrix.$features.gz 
+ -out Matrix.$features.png --colorList --colorList cornflowerblue,yellow,red --missingDataColor white   
  ```
  
 
