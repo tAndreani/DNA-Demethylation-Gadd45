@@ -109,7 +109,7 @@ plotHeatmap
  -m Matrix.$i.gz 
  -out Matrix.$i.png --colorList --colorList cornflowerblue,yellow,red --missingDataColor white   
 ```
-### For frequency plot figure 2-F
+#### For frequency plot figure 2-F
 
 ```
 computeMatrix reference-point --referencePoint center -b 5000 -a 5000
