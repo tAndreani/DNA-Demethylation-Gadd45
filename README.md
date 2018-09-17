@@ -1,4 +1,4 @@
-## Methylome Data Processing and Analysis in Co mESCs and Gadd45a,b,g Knock Out
+## Methylome data pre-processing and downstream analysis in Co mESCs and Gadd4-TKO
 Collection of scripts to detect Differentially Methylated Regions and perform downstream enrichment analysis at several genomic features of mouse ES cells.
 
 ## Quality Control and Trim
