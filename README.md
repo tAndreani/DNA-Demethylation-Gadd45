@@ -30,8 +30,8 @@ export Genomicfeatures  =`sed -n "$SLURM_ARRAY_TASK_ID"p List.Files.Job.Array`
 #SBATCH -c 5                     # cores
 #SBATCH --mem=10000M             # memory
 #SBATCH --time=72:00:00          # time
-#SBATCH --error=DMR.tko.err      # error file name
-#SBATCH --output=DMR.tko.out     # output file name
+#SBATCH --error=Alignment.err    # error file name
+#SBATCH --output=Alignment.out   # output file name
 #SBATCH --mail-user=t.andreani@imb-mainz.de  # email
 #SBATCH --mail-type=ALL                      # type notification
 ```
