@@ -89,7 +89,7 @@ bismark_methylation_extractor -p --ignore 5 --ignore_r2 5 --ample_memory --bedGr
 ```
 # Random DMRs were obtained from bedtools sampling the same amount of DMRs as the number of the significant ones (6904) with the same length  
 
-bedtools shuffle -incl background.file.with.all.DNA.regions.tested.bed -i Hyper.DMRs.G45.TKO.100bp.2CpG.Delta30.FDR.0.05.bed -g mm10.chr.sizes > Hyper.DMRs.G45.TKO.100bp.2CpG.Delta30.FDR.0.05.RANDOM.bed
+bedtools shuffle -incl background.file.with.all.DNA.regions.tested.bed -i Hyper.DMRs.G45.TKO.100bp.2CpG.Delta30.FDR.0.05.bed -g mm10.chr.sizes > Hyper.DMRs.RANDOM.bed
 
 Intersection for each feature is obtained:
 
@@ -97,7 +97,7 @@ Intersection for each feature is obtained:
 for i in *UCSC.feature.bed; do bedtools intersect -a yper.DMRs.G45.TKO.100bp.2CpG.Delta30.FDR.0.05.bed -b $i -wa | sort -u > $i.in.Hyper.DMRs.bed; done   
 
 # Expected
-for i in *UCSC.feature.bed; do bedtools intersect -a yper.DMRs.G45.TKO.100bp.2CpG.Delta30.FDR.0.05.RANDOM.bed -b $i -wa | sort -u > $i.in.Hyper.DMRs.bed; done  
+for i in *UCSC.feature.bed; do bedtools intersect -a yper.DMRs.RANDOM.bed -b $i -wa | sort -u > $i.in.Hyper.DMRs.bed; done  
 
 ```
 
