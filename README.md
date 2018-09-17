@@ -84,7 +84,7 @@ bismark_methylation_extractor -p --ignore 5 --ignore_r2 5 --ample_memory --bedGr
 ## Call of Differentially Methylated Regions (DMRs) with MethylKit (contents of the script in the folder "R"):
 `Rscript DMRs.Estimation.r`  
 
-## Downstream post-processing analysis (enrichment at regulatory features, Oxidative products DIP-seq peaks after Tet and Tdg knock out, Rloops etc..)
+## Downstream post-processing analysis (enrichment at regulatory features from Table Browser UCSC)  
 
 ```
 # Random DMRs were obtained from bedtools sampling the same amount of DMRs as the number of the significant ones (6904) with the same length  
@@ -94,11 +94,10 @@ bedtools shuffle -incl background.file.with.all.DNA.regions.tested.bed -i Hyper.
 Intersection for each feature is obtained:
 
 # Observed
-for i in *UCSC.feature.bed; do bedtools intersect -a yper.DMRs.G45.TKO.100bp.2CpG.Delta30.FDR.0.05.bed -b $i -wa | sort -u > $i.in.Hyper.DMRs.bed; done   
+for i in *UCSC.feature.bed; do bedtools intersect -a Hyper.DMRs.G45.TKO.100bp.2CpG.Delta30.FDR.0.05.bed -b $i -wa | sort -u > $i.in.Hyper.DMRs.bed; done   
 
 # Expected
-for i in *UCSC.feature.bed; do bedtools intersect -a yper.DMRs.RANDOM.bed -b $i -wa | sort -u > $i.in.Hyper.DMRs.bed; done  
-
+for i in *UCSC.feature.bed; do bedtools intersect -a Hyper.DMRs.RANDOM.bed -b $i -wa | sort -u > $i.in.Hyper.DMRs.bed; done  
 ```
 
 ## Motif Analysis with HOMER 
