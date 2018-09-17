@@ -130,7 +130,6 @@ findMotifsGenome.pl Hyper.DMRs.G45.TKO.100bp.2CpG.Delta30.FDR.0.05.Promoter.5caC
 findMotifsGenome.pl Hyper.DMRs.G45.TKO.100bp.2CpG.Delta30.FDR.0.05.Enhancer.5hmC.bed mm10 motifDMR.Enhancer.5hmC -size 25 -len 8
 findMotifsGenome.pl Hyper.DMRs.G45.TKO.100bp.2CpG.Delta30.FDR.0.05.Enhancer.5fC.bed mm10 motifDMR.Enhcaner.5fC -size 25 -len 8
 findMotifsGenome.pl Hyper.DMRs.G45.TKO.100bp.2CpG.Delta30.FDR.0.05.Enhancer.5caC.bed mm10 motifDMR.Enhcnaer.5caC -size 25 -len 8
-
 ```
 
 ## Heatmap and frequency plot with deepTools 3.0.1  
