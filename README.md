@@ -15,7 +15,7 @@ export fastq_file_G453  =`sed -n "$SLURM_ARRAY_TASK_ID"p G45.TKO2`
 export fastq_file_mESC1 =`sed -n "$SLURM_ARRAY_TASK_ID"p Co.ESCs.1`  
 export fastq_file_mESC2 =`sed -n "$SLURM_ARRAY_TASK_ID"p Co.ESCs.2`  
 export OxFeatures       =`sed -n "$SLURM_ARRAY_TASK_ID"p list.files.heatMap`  
-export Genomicfeatures  =`sed -n "$SLURM_ARRAY_TASK_ID"p List.Files.Job.Array`  
+export Genomicfeatures  =`sed -n "$SLURM_ARRAY_TASK_ID"p List.Files.frequency.plot`  
 ```
 
 ### Bash script template for Job array
