@@ -23,7 +23,7 @@ export Genomicfeatures  =`sed -n "$SLURM_ARRAY_TASK_ID"p list.files.frequency.pl
 #!/bin/sh
 
 #SBATCH --job-name=Alignment     # job name
-#SBATCH --array=1-494            # Number of Job (according to the number of splitted files for each sample)
+#SBATCH --array=1-494            # Number of Job (according to the number of splitted files in the exported variables)
 #SBATCH --nodes=1                # nodes
 #SBATCH -p andrade               # queue
 #SBATCH -A jgu-cbdm
