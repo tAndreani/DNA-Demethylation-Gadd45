@@ -37,7 +37,7 @@ export Genomicfeatures  =`sed -n "$SLURM_ARRAY_TASK_ID"p list.files.frequency.pl
 ```
 The bash commands above are used for all the steps of the pre processing and when required in the post processing (for heatMap and frquency plot) of the methylome data using Job Arrays in the Slurm queue system environment of Mogon.     
 
-## Quality Control and Trim: select reads with a quality value > 20 and remove illumina adapters    
+## Quality Control and Trim performed with trim_galore version 0.4.4: select reads with a quality value > 20 and remove illumina adapters    
 
 #### Gadd45.TKO samples  
 ```
