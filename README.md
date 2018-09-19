@@ -50,7 +50,7 @@ trim_galore --paired --trim1 $fastq_file_G453.R1.fastq.gz $fastq_file_G453.R2.fa
 trim_galore --paired --trim1 $fastq_file_mESC1.R1.fastq.gz $fastq_file_mESC1.R2.gz   
 trim_galore --paired --trim1 $fastq_file_mESC2.R1.fastq.gz $fastq_file_mESC2.R2.gz   
 ```
-## Alignment, merging and extraction of CGH, CHG and CHH  
+## Alignment, merging and extraction of CGH, CHG and CHH  with bismark_v0.18.0
 
 ### Alignment  
 #### Gadd45.TKO samples  
@@ -116,7 +116,7 @@ do
 done  
 ```
 
-## Motif Analysis with HOMER (fig. 3-A)
+## Motif Analysis with HOMER v3.12, 6-8-2012(fig. 3-A)
 ```
 findMotifsGenome.pl Hyper.DMRs.G45.TKO.100bp.2CpG.Delta30.FDR.0.05.Promoter.bed mm10 motifDMR.Promoter -size 25 -len 8
 findMotifsGenome.pl Hyper.DMRs.G45.TKO.100bp.2CpG.Delta30.FDR.0.05.Enhancer.bed mm10 motifDMR.Enhancer -size 25 -len 8
