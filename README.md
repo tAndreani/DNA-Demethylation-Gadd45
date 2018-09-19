@@ -27,7 +27,7 @@ export Genomicfeatures  =`sed -n "$SLURM_ARRAY_TASK_ID"p list.files.frequency.pl
 #SBATCH --nodes=1                # nodes
 #SBATCH -p andrade               # queue
 #SBATCH -A jgu-cbdm
-#SBATCH -c 5                     # cores
+#SBATCH -c 1                     # cores
 #SBATCH --mem=10000M             # memory
 #SBATCH --time=72:00:00          # time
 #SBATCH --error=Alignment.err    # error file name
