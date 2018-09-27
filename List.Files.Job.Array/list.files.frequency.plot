@@ -1,7 +1,6 @@
 5caC
 5fC
 5hmC
-5hmC.TDG
 Corest
 CpG
 CTR9
