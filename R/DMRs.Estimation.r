@@ -70,19 +70,27 @@ fread.gzipped<-function(filepath,...){
 setwd("/gpfs/fs6/jgu-cbdm/andradeLab/scratch/tandrean/Data/WGBS/Gadd45.TKO/Gadd45.tko.Quality.Filter/Extraction/MethylKit")
 
 #Files are the output of Bismarck i.e. the Cytosine Report Files (example Gadd45.tko2.CpG_report.txt) with a ToT CG of 43841737 in each file
+
+#Import the files and create a Methylkit object
 file.list <- list("control1.myCpG.gz","control2.myCpG.gz","test2.myCpG.gz","test3.myCpG.gz")
 myobj=readBismarkCytosineReport(file.list,sample.id=list("ctrl1","ctrl2","test2","test3"),assembly="mm10",treatment=c(0,0,1,1))
 tiles <- tileMethylCounts(myobj,cov.bases = 2, win.size = 100,step.size = 100)
 meth=unite(tiles,destrand=FALSE)
+
+#Expore the variability of the samples with a correlation plot
 pdf('Samples.ctrl1.ctrl2.test2.test3.Correlation.Tiles.100.pdf')
 getCorrelation(meth, plot = T)
 dev.off()
 
+#Explor the variability of the samples with a PCA plot
 pdf('Samples.ctrl1.ctrl2.test2.test3.PCA.Tiles.100.pdf')
 PCASamples(meth)
 dev.off()
 
+#Use covariate for the control clone n.2 that is more variable respect to the other control clone n.1
 covariates=data.frame(experiment=c(0,1,0,0))
+
+#Call Differentialy Methylated Regions using the covariates, difference of 30 and FDR <= 5%
 myDiff <- calculateDiffMeth(meth,covariates=covariates,overdispersion=c("MN"),effect=c("predicted"),test=c("Chisq"),num.cores=4)
 myDiff25p.hyper <- getMethylDiff(myDiff, difference = 30,qvalue = 0.05, type = "hyper")
 myDiff25p.hypo <- getMethylDiff(myDiff, difference = 30,qvalue = 0.05, type = "hypo")
@@ -90,7 +98,7 @@ Hyper <- getData(myDiff25p.hyper)
 Hypo <- getData(myDiff25p.hypo)
 
 
-
+#Download the hyper and hypo DMRs
 write.table(myDiff,"Background.Gadd45.TKO.cov.10.Tiles.100.delta.30.txt",quote=FALSE,col.names=T,row.names=F,sep="\t") ##For Backgroung
 write.table(myDiff25p.hyper,"Hyper.DMRs.Gadd45.TKO.cov.10.Tiles.100.delta.30.FDR.5%.txt",quote=FALSE,col.names=T,row.names=F,sep="\t")
 write.table(myDiff25p.hypo,"Hypo.DMRs.Gadd45.TKO.cov.10.Tiles.100.delta.30.FDR.5%.txt",quote=FALSE,col.names=T,row.names=F,sep="\t")
