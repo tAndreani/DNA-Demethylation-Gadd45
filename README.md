@@ -158,7 +158,7 @@ computeMatrix reference-point --referencePoint center -b 5000 -a 5000
 
 plotHeatmap
  -m Matrix.$Genomicfeatures.gz 
- -out Matrix.$Genomicfeatures.png --colorList --colorList cornflowerblue,yellow,red --missingDataColor white   
+ -out Matrix.$Genomicfeatures.png --colorList cornflowerblue,yellow,red --missingDataColor white --legendLocation none
  ```
   
 
