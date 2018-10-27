@@ -1,7 +1,7 @@
 ## Methylome data pre-processing and downstream analysis in Co mESCs and Gadd45-TKO
 Collection of scripts to detect Differentially Methylated Regions and perform downstream enrichment analysis at several genomic features of mouse ES cells.
 
-## Set up the files for Job Array
+## Set up the files for Job Array and subsequent parallelization of the workflow
 Before performing the quality control we want to split the fastq files in small pieces of 1mln reads in order to parallelize all the analysis:
 
 `zcat example.fq.gz | split -4000000 &` 
