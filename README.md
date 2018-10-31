@@ -138,7 +138,7 @@ findMotifsGenome.pl Hyper.DMRs.G45.TKO.100bp.2CpG.Delta30.FDR.0.05.Enhancer.5caC
 computeMatrix reference-point --referencePoint center -b 5000 -a 5000
  -R Hyper.DMRs.G45.TKO.100bp.2CpG.Delta30.FDR.0.05.bed
  -S $OxFeatures ## Oxidative feature from 'list.files.heatMap in the List.Files.Job.Array folder' 
- --skipZeros
+--missingDataAsZero
  -out Matrix.$OxFeatures.gz
  --outFileSortedRegions regions.$OxFeatures.bed
 
@@ -152,7 +152,7 @@ plotHeatmap
 computeMatrix reference-point --referencePoint center -b 5000 -a 5000
  -R $Genomicfeatures ## feature from 'list.files.frequency.plot in the List.Files.Job.Array folder'
  -S G45.TKO.minus.ESCsWT.bin100bp.bigWig 
- --skipZeros
+ --missingDataAsZero
  -out Matrix.$Genomicfeatures.gz
  --outFileSortedRegions regions.$Genomicfeatures.bed
 
