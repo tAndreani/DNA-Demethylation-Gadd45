@@ -1,88 +1,40 @@
-#Population size (All the Genes): 28409
-#Sample size (Genes): 131
-#Number of items in the  Population size that are classified as successes:
-#Number of items in the sample that are classified as successes 
+#Hyper DMRs in G45-TKO genes associated with 2C like genes
+totalpop <-  24096  #Background 
+sample1 <-  6817 #(Genes with HyperMe using GREAT standard paramenter)
+sample2 <-  525   #(Genes 2C)
+fisher.test(matrix(c(6817-178,24096-6817-525,178,525-178), 2, 2), alternative='l')
 
-#Rep1 Up and Down
-totalpop <- 37993 
-sample1 <- 131    #(Genes Diff Expressed)
-sample2 <- 2115    #(Genes with HyperMe)
-sum(dhyper(14:sample2, sample1, totalpop-sample1, sample2))
-
-#Rep1 only Down
-totalpop <- 37993 
-sample1 <- 91    #(Genes Down regulated Diff Expressed)
-sample2 <- 2115    #(Genes with HyperMe)
-sum(dhyper(10:sample2, sample1, totalpop-sample1, sample2))
-
-#Rep2 Up and Down
-totalpop <- 37993 
-sample1 <- 131    #(Genes Diff Expressed)
-sample2 <- 2120    #(Genes with HyperMe)
-sum(dhyper(10:sample2, sample1, totalpop-sample1, sample2))
-
-#Rep2 only Down
-totalpop <- 37993 
-sample1 <- 91    #(Genes Diff Expressed)
-sample2 <- 2120    #(Genes with HyperMe)
-sum(dhyper(9:sample2, sample1, totalpop-sample1, sample2))
+#Down in 2c G45 DKO and Up at 2C state
+totalpop <- 25256  #Total genes background
+sample1 <- 50    #(Genes Diff Expressed Down in 2C Gadd DKO)
+sample2 <- 5265    #(Genes with 2C up)
+fisher.test(matrix(c(5262-22,25256-5265-50,22,50-22), 2, 2), alternative='l')
 
 
-#Comm Rep1 and Rep2 Down
-totalpop <- 37993 
-sample1 <- 91    #(Genes Diff Expressed)
-sample2 <- 865    #(Genes with HyperMe)
-sum(dhyper(6:sample2, sample1, totalpop-sample1, sample2))
+#Up in 2c G45 DKO and Up at 2C state
+totalpop <- 25256 #Total genes background
+sample1 <- 54    #(Genes Diff Expressed Up in 2C Gadd DKO)
+sample2 <- 5265    #(Genes with 2C up)
+fisher.test(matrix(c(5262-3,25256-5265-54,3,54-3), 2, 2), alternative='l')
 
 
-#Comm Rep1 and Rep2 Up and Down
-totalpop <- 37993 
-sample1 <- 131    #(Genes Diff Expressed)
-sample2 <- 865    #(Genes with HyperMe)
-sum(dhyper(7:sample2, sample1, totalpop-sample1, sample2))
+#Down in 2c G45 DKO and Down at 2C state
+totalpop <- 25256 #Total genes background
+sample1 <- 50    #(Genes Diff Expressed Down in 2C Gadd DKO)
+sample2 <- 2325    #(Genes with 2C down)
+fisher.test(matrix(c(2325-7,25256-2325-50,7,50-7), 2, 2), alternative='l')
 
 
-#Rep1 and Rep2 Up and Down
-totalpop <- 37993 
-sample1 <- 131    #(Genes Diff Expressed)
-sample2 <- 3370     #(Genes with HyperMe)
-sum(dhyper(17:sample2, sample1, totalpop-sample1, sample2))
+#Up in 2c G45 DKO and Down at 2C state
+totalpop <- 25256 #Total genes background
+sample1 <- 54    #(Genes Diff Expressed Up in 2C Gadd DKO)
+sample2 <- 2325    #(Genes with 2C down)
+fisher.test(matrix(c(2325-17,25256-2325-54,17,54-17), 2, 2), alternative='l')
+
+#Down in 2c G45 DKO and 2C-like genes (Fig. 6D)
+totalpop <- 25256 #Total genes background
+sample1 <- 50    #(Genes Diff Expressed Down in 2C Gadd DKO)
+sample2 <- 525    #(2C like genes G45-DKO)
+fisher.test(matrix(c(525-7,25256-525-50,7,50-7), 2, 2), alternative='l')
 
 
-#Genes with HyperDMRs obtained with GREAT Up and Down
-totalpop <- 37993 
-sample1 <- 131    #(Genes Diff Expressed)
-sample2 <- 7389     #(Genes with HyperMe)
-sum(dhyper(34:sample2, sample1, totalpop-sample1, sample2))
-
-
-#Previous approach 1kb
-totalpop <- 37993 
-sample1 <- 130    #(Genes Diff Expressed)
-sample2 <- 510     #(Genes with HyperMe)
-sum(dhyper(6:sample2, sample1, totalpop-sample1, sample2))
-
-#Extension 10 Kb Genes Diff Up and Down
-totalpop <- 37993 
-sample1 <- 130    #(Genes Diff Expressed)
-sample2 <- 3651     #(Genes with HyperMe)
-sum(dhyper(22:sample2, sample1, totalpop-sample1, sample2))
-
-#Extension 10 Kb Genes Diff Down
-totalpop <- 37993 
-sample1 <- 91    #(Genes Diff Expressed)
-sample2 <- 3651     #(Genes with HyperMe)
-sum(dhyper(16:sample2, sample1, totalpop-sample1, sample2))
-
-
-#Extension 20 Kb Genes Diff Up nad Down
-totalpop <- 37993 
-sample1 <- 130    #(Genes Diff Expressed)
-sample2 <-  6065    #(Genes with HyperMe)
-sum(dhyper(30:sample2, sample1, totalpop-sample1, sample2))
-
-#Extension 20 Kb Genes Diff Down
-totalpop <- 37993 
-sample1 <- 91    #(Genes Diff Expressed)
-sample2 <- 6065     #(Genes with HyperMe)
-sum(dhyper(22:sample2, sample1, totalpop-sample1, sample2))
