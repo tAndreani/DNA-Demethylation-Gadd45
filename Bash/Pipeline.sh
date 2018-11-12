@@ -174,7 +174,7 @@ hmr -o Gadd45.tko.CpG.symmetric.and.mutations.hyper.hmr Gadd45.tko.CpG.symmetric
 
 
 #Call Hyper Methylated Cystosines second approach
-hypermr -o mESC.WT.hypemr mESC.WT.CpG.symmetric.and.mutations.meth
+hypermr -o mESC.WT.hypermr mESC.WT.CpG.symmetric.and.mutations.meth
 hypermr -o Gadd45.tko1.hypermr Gadd45.tko1.CpG.symmetric.and.mutations.meth
 hypermr -o Gadd45.tko2.hypermr Gadd45.tko2.CpG.symmetric.and.mutations.meth
 hypermr -o Gadd45.tko3.hypermr Gadd45.tko3.CpG.symmetric.and.mutations.meth
