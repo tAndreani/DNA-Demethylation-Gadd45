@@ -148,15 +148,24 @@ plotHeatmap
 ```
 #### For frequency plot at several genomic features figure 2-F
 
+#### First create the delta methylation differences in bins of 100 bp in TKO vs WT and the bigWig file
+
+```bash ./Create.Delta.Mean.Methylation.file.Table.sh ```
+
+#### Then create the matrix for the frequency plot
+
 ```
 computeMatrix reference-point --referencePoint center -b 5000 -a 5000
  -R $Genomicfeatures ## feature from 'list.files.frequency.plot in the List.Files.Job.Array folder'
  -S G45.TKO.minus.ESCsWT.bin100bp.bigWig 
  --missingDataAsZero
  -out Matrix.$Genomicfeatures.gz
- --outFileSortedRegions regions.$Genomicfeatures.bed
+ --outFileSortedRegions regions.$Genomicfeatures.bed 
+```
 
-plotHeatmap
+#### Then plot according to the matrix created: the plot represents the delta methylation differences signal in TKO vs WT at the center of each genomic feature
+
+``` plotHeatmap
  -m Matrix.$Genomicfeatures.gz 
  -out Matrix.$Genomicfeatures.png --colorList cornflowerblue,yellow,red --missingDataColor white --legendLocation none
  ```
