@@ -17,7 +17,7 @@ zcat G45.TKO3.myCpG.gz | awk '{OFS="\t";if($4+0 > 0 || $5+0 >0 ) print $1"\t"$2-
 $4+$5;}' > G45.TKO3.myCpG.bed &
 
 #Filter CG with Coverage >= 10
-cat ES.WT.myCpG.bed | awk '$5 >= 10' > ES.WT.cov.major.egual.10.bed &
+cat ES.WT1.myCpG.bed | awk '$5 >= 10' > ES.WT1.cov.major.egual.10.bed &
 cat ES.WT2.myCpG.bed | awk '$5 >= 10' > ES.WT2.cov.major.egual.10.bed &
 cat G45.TKO2.myCpG.bed | awk '$5 >= 10' > G45.TKO2.cov.major.egual.10.bed &
 cat G45.TKO3.myCpG.bed | awk '$5 >= 10' > G45.TKO3.cov.major.egual.10.bed &
@@ -34,8 +34,8 @@ done &
 
 
 #Take common Id
-comm -12 Gadd45.tko2.CpG_report.sort.bed.cov.major.egual.10.Id  Gadd45.tko3.CpG_report.sort.bed.cov.major.egual.10.Id | comm -12 - mESC2_CpG_report.sort.bed.cov.major.egual.10.Id |
-comm -12 -  mESC1.CpG_report.sort.bed.cov.major.egual.10.Id  > Common.CG.all.sampels.txt
+comm -12 G45.TKO2.cov.major.egual.10.Id  G45.TKO3.cov.major.egual.10.Id | comm -12 - ES.WT1.cov.major.egual.10.Id |
+comm -12 -  ES.WT1.cov.major.egual.10..Id  > Common.CG.all.sampels.txt
 
 #Format the Coordinates and sort again to be sure
 cat Common.CG.all.sampels.sort.txt | awk -F "_" '{print $1"\t"$2"\t"$3}' > Common.CG.all.sampels.sort.bed &
@@ -56,17 +56,14 @@ paste *common | cut -f 1,2,3,4,9,14,19 | awk '{print $1"\t"$2"\t"$3"\t"$8"\t"$7"
 cat Master.Table.wt1.wt2.tko2.tko3.txt | awk '{print $1"\t"$2"\t"$3"\t"($4+$5)/2"\t"($6+$7)/2}' > Master.Table.wt1.wt2.tko2.tko3.Mean.Values.txt  &
 
 #Compute delta
-cat Master.Table.wt1.wt2.tko2.tko3.Mean.Values.txt | awk '{print $1"\t"$2"\t"$3"\t"$5-$4}' > Master.Table.wt1.wt2.tko2.tko2.tko3.Mean.Values.and.Delta.TKO.minus.WT.txt  &
-
-#Convert to bigWig
+cat Master.Table.wt1.wt2.tko2.tko3.Mean.Values.txt | awk '{print $1"\t"$2"\t"$3"\t"$5-$4}' > Master.Table.wt1.wt2.tko2.tko3.Mean.Values.and.Delta.TKO.minus.WT.txt  &
 
 
+##Extract delta mean in bins of 100 bp
+bedtools intersect -a Master.Table.wt1.wt2.tko2.tko3.Mean.Values.and.Delta.TKO.minus.WT.bedgraph -b mm10.binned.100.bp.ready.bed -wb | awk  '{print $8"\t"$4}' > mm10.binned.100.bp.ready.CpG.mean.values.2.TKO.minus.2.WT
+datamash-1.3/datamash -g 1 mean 2 <mm10.binned.100.bp.ready.CpG.mean.values.2.TKO.minus.2.WT  > Master.Table.wt1.wt2.tko2.tko3.Mean.Values.and.Delta.TKO.minus.WT.bin100bp.txt
+cat Master.Table.wt1.wt2.tko2.tko3.Mean.Values.and.Delta.TKO.minus.WT.bin100bp.txt | awk -F "_" '{print $1"\t"$2"\t"$3"\t"$4}' > cat Master.Table.wt1.wt2.tko2.tko3.Mean.Values.and.Delta.TKO.minus.WT.bin100bp.bed
 
-
-##Now do the same in bins of 100 bp
-#
-bedtools intersect -a Master.Table.wtNeil.wtGadd.tko1.tko2.tko3.Mean.Values.and.Delta.TKO.minus.WT.bedgraph -b mm10.binned.100.bp.ready.bed -wb | awk  '{print $8"\t"$4}' > mm10.binned.100.bp.ready.CpG.mean.values.3.TKO.minus.WT
-datamash-1.3/datamash -g 1 mean 2 <mm10.binned.100.bp.ready.CpG.mean.values.3.TKO.minus.WT  > Master.Table.wtNeil.wtGadd.tko1.tko2.tko3.Mean.Values.and.Delta.TKO.minus.WT.bin100bp.txt
-cat Master.Table.wtNeil.wtGadd.tko1.tko2.tko3.Mean.Values.and.Delta.TKO.minus.WT.bin100bp.txt | awk -F "_" '{print $1"\t"$2"\t"$3"\t"$4}' > cat Master.Table.wtNeil.wtGadd.tko1.tko2.tko3.Mean.Values.and.Delta.TKO.minus.WT.bin100bp.bed
+#Create bigWig with bedgraphTobigWig tool from UCSC
 
 
