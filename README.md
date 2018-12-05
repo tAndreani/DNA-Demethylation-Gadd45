@@ -152,7 +152,7 @@ plotHeatmap
 
 ```bash ./Create.Delta.Mean.Methylation.file.Table.sh ```
 
-#### Then create the matrix for the frequency plot
+#### Second create the matrix for the frequency plot
 
 ```
 computeMatrix reference-point --referencePoint center -b 5000 -a 5000
@@ -163,7 +163,7 @@ computeMatrix reference-point --referencePoint center -b 5000 -a 5000
  --outFileSortedRegions regions.$Genomicfeatures.bed 
 ```
 
-#### Then plot according to the matrix created: the plot represents the delta methylation differences signal in TKO vs WT at the center of each genomic feature
+#### Third plot according to the matrix created: the plot represents the delta methylation differences signal in TKO vs WT at the center of each genomic feature
 
 ``` plotHeatmap
  -m Matrix.$Genomicfeatures.gz 
