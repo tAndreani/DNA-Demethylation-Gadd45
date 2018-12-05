@@ -64,6 +64,6 @@ bedtools intersect -a Master.Table.wt1.wt2.tko2.tko3.Mean.Values.and.Delta.TKO.m
 datamash-1.3/datamash -g 1 mean 2 <mm10.binned.100.bp.ready.CpG.mean.values.2.TKO.minus.2.WT  > Master.Table.wt1.wt2.tko2.tko3.Mean.Values.and.Delta.TKO.minus.WT.bin100bp.txt
 cat Master.Table.wt1.wt2.tko2.tko3.Mean.Values.and.Delta.TKO.minus.WT.bin100bp.txt | awk -F "_" '{print $1"\t"$2"\t"$3"\t"$4}' > cat Master.Table.wt1.wt2.tko2.tko3.Mean.Values.and.Delta.TKO.minus.WT.bin100bp.bed
 
-#Create bigWig with bedgraphTobigWig tool from UCSC
+#Create bigWig with bedgraphTobigWig tool from UCSC https://www.encodeproject.org/software/bedgraphtobigwig/
 
 
