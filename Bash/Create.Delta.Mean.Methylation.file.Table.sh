@@ -35,7 +35,7 @@ done &
 
 #Take common Id
 comm -12 G45.TKO2.cov.major.egual.10.Id  G45.TKO3.cov.major.egual.10.Id | comm -12 - ES.WT1.cov.major.egual.10.Id |
-comm -12 -  ES.WT1.cov.major.egual.10..Id  > Common.CG.all.sampels.txt
+comm -12 -  ES.WT2.cov.major.egual.10..Id  > Common.CG.all.sampels.txt
 
 #Format the Coordinates and sort again to be sure
 cat Common.CG.all.sampels.sort.txt | awk -F "_" '{print $1"\t"$2"\t"$3}' > Common.CG.all.sampels.sort.bed &
