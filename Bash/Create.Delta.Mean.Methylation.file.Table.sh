@@ -23,21 +23,18 @@ cat G45.TKO2.myCpG.bed | awk '$5 >= 10' > G45.TKO2.cov.major.egual.10.bed &
 cat G45.TKO3.myCpG.bed | awk '$5 >= 10' > G45.TKO3.cov.major.egual.10.bed &
 
 
-#Extract the common CG with coverage 10 that are present in all the 5 samples
+#Extract the common CG with coverage 10 that are present in all the 4 samples
 
 #First create the Id values
 for i in *.cov.major.egual.10;
 do awk -F "\t" '{print $1"_"$2"_"$3}' $i > $i.Id;
 done &
 
-
-
-
 #Take common Id
 comm -12 G45.TKO2.cov.major.egual.10.Id  G45.TKO3.cov.major.egual.10.Id | comm -12 - ES.WT1.cov.major.egual.10.Id |
 comm -12 -  ES.WT2.cov.major.egual.10..Id  > Common.CG.all.sampels.txt
 
-#Format the Coordinates and sort again to be sure
+#Format the Coordinates and sort again
 cat Common.CG.all.sampels.sort.txt | awk -F "_" '{print $1"\t"$2"\t"$3}' > Common.CG.all.sampels.sort.bed &
 cat Common.CG.all.sampels.sort.bed | sort -k 1,1 -k2,2n  > Common.CG.all.sampels.sort.as.bed &
 
@@ -45,9 +42,9 @@ cat Common.CG.all.sampels.sort.bed | sort -k 1,1 -k2,2n  > Common.CG.all.sampels
 ## awk -v OFS="\t" to avoid tab in every step#
 ##############################################
 
-
-#Extract
+#Extract and quality check all are good wit the same number
 for i in *cov.major.egual.10; do bedtools intersect -a $i -b Common.CG.all.sampels.sort.as.bed > $i.common; done &
+wc -l *common
 
 #Create master table
 paste *common | cut -f 1,2,3,4,9,14,19 | awk '{print $1"\t"$2"\t"$3"\t"$8"\t"$7"\t"$4"\t"$5"}' > Master.Table.wt1.wt2.tko2.tko3.txt &
@@ -57,7 +54,6 @@ cat Master.Table.wt1.wt2.tko2.tko3.txt | awk '{print $1"\t"$2"\t"$3"\t"($4+$5)/2
 
 #Compute delta
 cat Master.Table.wt1.wt2.tko2.tko3.Mean.Values.txt | awk '{print $1"\t"$2"\t"$3"\t"$5-$4}' > Master.Table.wt1.wt2.tko2.tko3.Mean.Values.and.Delta.TKO.minus.WT.txt  &
-
 
 ##Extract delta mean in bins of 100 bp
 bedtools intersect -a Master.Table.wt1.wt2.tko2.tko3.Mean.Values.and.Delta.TKO.minus.WT.bedgraph -b mm10.binned.100.bp.ready.bed -wb | awk  '{print $8"\t"$4}' > mm10.binned.100.bp.ready.CpG.mean.values.2.TKO.minus.2.WT
