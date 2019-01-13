@@ -165,7 +165,8 @@ computeMatrix reference-point --referencePoint center -b 5000 -a 5000
 
 #### Third plot according to the matrix created: the plot represents the delta methylation differences signal in TKO vs WT at the center of each genomic feature
 
-``` plotHeatmap
+``` 
+  plotHeatmap
  -m Matrix.$Genomicfeatures.gz 
  -out Matrix.$Genomicfeatures.png --colorList cornflowerblue,yellow,red --missingDataColor white --legendLocation none
  ```
