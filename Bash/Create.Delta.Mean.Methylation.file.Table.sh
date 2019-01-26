@@ -9,7 +9,7 @@
 #SBATCH --mem=24G        # large memory needed for sorting step (8G not enough )
 #SBATCH --time=2:00:00                      # time  hh:mm:ss  
 
-# Computes the DNA methylation landscape at a CEBP/hyperDMR site.
+# Computes the DNA methylation landscape at a CEBP/hyperDMR site or Gadd45-TKO hyper DMRs.
 # Script by Tommaso Andreani
 # adapted by David Fournier January 2019
 # original script by TA to be found at the following URL:
