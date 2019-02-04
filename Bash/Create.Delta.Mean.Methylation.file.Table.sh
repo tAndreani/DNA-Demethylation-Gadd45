@@ -71,8 +71,8 @@ cat Common.CG.all.samples.sort.bed | sort -k 1,1 -k2,2n  > Common.CG.all.samples
 for i in *cov10.bed; do bedtools intersect -a $i -b Common.CG.all.samples.sort.as.bed > $i.common; done
 
 #Create master table
-paste *common | cut -f 1,2,3,4,9,14,19 | awk '{print $1"\t"$2"\t"$3"\t"$6"\t"$7"\t"$4"\t"$5}' > Master.Table.wt1.wt2.cond1.cond2.txt 
-
+paste Sample1_cov10.bed.common Sample2_cov10.bed.common Sample3_cov10.bed.common Sample4_cov10.bed.common | cut -f 
+1,2,3,4,9,14,19 > Master.Table.wt1.wt2.cond1.cond2.txt
 #Compute Mean Values
 cat Master.Table.wt1.wt2.cond1.cond2.txt | awk '{print $1"\t"$2"\t"$3"\t"($4+$5)/2"\t"($6+$7)/2}' > Master.Table.wt.cond.Mean.Values.txt  
 
