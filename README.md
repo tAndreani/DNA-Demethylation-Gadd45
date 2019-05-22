@@ -1,3 +1,6 @@
+##Manuscript accepted in Genes and Development: "Gadd45 promotes locus specific DNA demethylation and 2C cycling in embryonic stem cells"
+
+
 ## Methylome data pre-processing and downstream analysis in Co mESCs and Gadd45-TKO
 Collection of scripts to detect Differentially Methylated Regions and perform downstream enrichment analysis at several genomic features of mouse ES cells.
 
