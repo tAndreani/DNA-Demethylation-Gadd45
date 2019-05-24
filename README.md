@@ -87,8 +87,10 @@ samtools merge -n $mESC2/Alignment/mESC2.bam $mESC2/Alignment/x*.bam
 ```
 picard MarkDuplicates INPUT=$gadd45Tko2/Alignment/Gadd45.tko2.bam OUTPUT=r$gadd45Tko2/Alignment/Gadd45.tko2.dedup.bam METRICS_FILE=dup.txt VALIDATION_STRINGENCY=LENIENT REMOVE_DUPLICATES=true TMP_DIR=/tmp
 picard MarkDuplicates INPUT=$gadd45Tko3/Alignment/Gadd45.tko3.bam OUTPUT=r$gadd45Tko2/Alignment/Gadd45.tko2.dedup.bam METRICS_FILE=dup.txt VALIDATION_STRINGENCY=LENIENT REMOVE_DUPLICATES=true TMP_DIR=/tmp
-
+```
 #### Co mESCs  
+
+```
 picard MarkDuplicates INPUT=$mESC1/Alignment/mESC1.bam OUTPUT=$mESC1/Alignment/mESC1.dedup.bam METRICS_FILE=dup.txt VALIDATION_STRINGENCY=LENIENT REMOVE_DUPLICATES=true TMP_DIR=/tmp
 picard MarkDuplicates INPUT=$$mESC2/Alignment/mESC2.bam OUTPUT=$mESC2/Alignment/mESC2.dedup.bam METRICS_FILE=dup.txt VALIDATION_STRINGENCY=LENIENT REMOVE_DUPLICATES=true TMP_DIR=/tmp
 ```
@@ -187,4 +189,3 @@ computeMatrix reference-point --referencePoint center -b 5000 -a 5000
  -out Matrix.$Genomicfeatures.png --colorList cornflowerblue,yellow,red --missingDataColor white --legendLocation none
  ```
   
-
