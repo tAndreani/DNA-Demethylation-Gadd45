@@ -53,7 +53,7 @@ trim_galore --paired --trim1 $fastq_file_G453.R1.fastq.gz $fastq_file_G453.R2.fa
 trim_galore --paired --trim1 $fastq_file_mESC1.R1.fastq.gz $fastq_file_mESC1.R2.gz   
 trim_galore --paired --trim1 $fastq_file_mESC2.R1.fastq.gz $fastq_file_mESC2.R2.gz   
 ```
-## Alignment, merging and extraction of CGH, CHG and CHH  with bismark_v0.18.0
+## Alignment, merging, deduplication (optional) and extraction of CGH, CHG and CHH  with bismark_v0.18.0
 
 ### Alignment  
 #### Gadd45.TKO samples  
@@ -81,7 +81,7 @@ samtools merge -n $mESC1/Alignment/mESC1.bam $mESC1/Alignment/x*.bam
 samtools merge -n $mESC2/Alignment/mESC2.bam $mESC2/Alignment/x*.bam    
 ```
 
-### Remove Duplicated
+### Remove Duplicated (optional, in the manuscript not performed because we were interested also in repetitive regions)
 #### Gadd45.TKO samples  
 
 ```
