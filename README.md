@@ -136,17 +136,10 @@ done
 
 ## Motif Analysis with HOMER v3.12, 6-8-2012(fig. 3-A)
 ```
-findMotifsGenome.pl Hyper.DMRs.G45.TKO.100bp.2CpG.Delta30.FDR.0.05.Promoter.bed mm10 motifDMR.Promoter -size 25 -len 8
-findMotifsGenome.pl Hyper.DMRs.G45.TKO.100bp.2CpG.Delta30.FDR.0.05.Enhancer.bed mm10 motifDMR.Enhancer -size 25 -len 8
-findMotifsGenome.pl Hyper.DMRs.G45.TKO.100bp.2CpG.Delta30.FDR.0.05.5hmC.bed mm10 motifDMR.5hmC -size 25 -len 8
-findMotifsGenome.pl Hyper.DMRs.G45.TKO.100bp.2CpG.Delta30.FDR.0.05.5fC.bed mm10 motifDMR.5fC -size 25 -len 8
-findMotifsGenome.pl Hyper.DMRs.G45.TKO.100bp.2CpG.Delta30.FDR.0.05.5caC.bed mm10 motifDMR.5caC -size 25 -len 8
-findMotifsGenome.pl Hyper.DMRs.G45.TKO.100bp.2CpG.Delta30.FDR.0.05.Promoter.5hmC.bed mm10 motifDMR.Promoter.5hmC -size 25 -len 8
-findMotifsGenome.pl Hyper.DMRs.G45.TKO.100bp.2CpG.Delta30.FDR.0.05.Promoter.5fC.bed mm10 motifDMR.Promoter.5fC -size 25 -len 8
-findMotifsGenome.pl Hyper.DMRs.G45.TKO.100bp.2CpG.Delta30.FDR.0.05.Promoter.5caC.bed mm10 motifDMR.Promoter.5caC -size 25 -len 8
-findMotifsGenome.pl Hyper.DMRs.G45.TKO.100bp.2CpG.Delta30.FDR.0.05.Enhancer.5hmC.bed mm10 motifDMR.Enhancer.5hmC -size 25 -len 8
-findMotifsGenome.pl Hyper.DMRs.G45.TKO.100bp.2CpG.Delta30.FDR.0.05.Enhancer.5fC.bed mm10 motifDMR.Enhcaner.5fC -size 25 -len 8
-findMotifsGenome.pl Hyper.DMRs.G45.TKO.100bp.2CpG.Delta30.FDR.0.05.Enhancer.5caC.bed mm10 motifDMR.Enhcnaer.5caC -size 25 -len 8
+for i in segmented_DMR;
+do
+  findMotifsGenome.pl $i mm10 motifDMR.$i -size 25 -len 8;
+done
 ```
 
 ## Heatmap and frequency plot with deepTools 3.0.1  
