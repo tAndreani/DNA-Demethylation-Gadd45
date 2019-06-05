@@ -92,7 +92,7 @@ picard MarkDuplicates INPUT=$gadd45Tko3/Alignment/Gadd45.tko3.bam OUTPUT=r$gadd4
 
 ```
 picard MarkDuplicates INPUT=$mESC1/Alignment/mESC1.bam OUTPUT=$mESC1/Alignment/mESC1.dedup.bam METRICS_FILE=dup.txt VALIDATION_STRINGENCY=LENIENT REMOVE_DUPLICATES=true TMP_DIR=/tmp
-picard MarkDuplicates INPUT=$$mESC2/Alignment/mESC2.bam OUTPUT=$mESC2/Alignment/mESC2.dedup.bam METRICS_FILE=dup.txt VALIDATION_STRINGENCY=LENIENT REMOVE_DUPLICATES=true TMP_DIR=/tmp
+picard MarkDuplicates INPUT=$mESC2/Alignment/mESC2.bam OUTPUT=$mESC2/Alignment/mESC2.dedup.bam METRICS_FILE=dup.txt VALIDATION_STRINGENCY=LENIENT REMOVE_DUPLICATES=true TMP_DIR=/tmp
 ```
 
 ## Extraction  
