@@ -1,4 +1,4 @@
-##### Manuscript accepted in Genes and Development: "Gadd45 promotes locus specific DNA demethylation and 2C cycling in embryonic stem cells" Katrin Schule, Manuel Leichsenring, Tommaso Andreani et Al.
+##### Manuscript accepted in Genes and Development: "Gadd45 promotes locus specific DNA demethylation and 2C cycling in embryonic stem cells" Katrin Schule, Manuel Leichsenring, Tommaso Andreani et Al. (http://genesdev.cshlp.org/content/early/2019/06/04/gad.325696.119.abstract)
 
 
 ## Methylome data pre-processing and downstream analysis in Co mESCs and Gadd45-TKO
