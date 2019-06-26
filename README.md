@@ -6,7 +6,7 @@
 
 ![G45 2C](https://user-images.githubusercontent.com/6462162/60143946-3ff11500-979b-11e9-8e9a-c60cc3fb58ef.png)
 
-##### 2) Hyper-Methylated Genes are associated with 2C-like genes from Macfarlan 2012.
+##### 2) Hyper-Methylated Genes are associated with 2C-like genes from Macfarlan 2012 and hyper-methylated motifs in Gaddd45-TKO ESCs are enriched for Zscan4, a 2C stage regulator.
 
 
 ## Methylome data pre-processing and downstream analysis in Co mESCs and Gadd45-TKO
