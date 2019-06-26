@@ -3,7 +3,7 @@
 
 ![Demethylation2](https://user-images.githubusercontent.com/6462162/60143743-4fbc2980-979a-11e9-8a73-608d389dca68.png)
 
-1) Gadd45 proteins promote demethylation mediated by DNA repairs at TET-TDG dependent genomic sites.
+##### 1) Gadd45 proteins promote demethylation mediated by DNA repairs at TET-TDG dependent genomic sites.
 
 
 ## Methylome data pre-processing and downstream analysis in Co mESCs and Gadd45-TKO
