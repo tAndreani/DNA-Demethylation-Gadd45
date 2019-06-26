@@ -5,6 +5,10 @@
 
 ##### 1) Gadd45 proteins promote demethylation mediated by DNA repairs at TET-TDG dependent genomic sites.
 
+![G45 2C](https://user-images.githubusercontent.com/6462162/60143946-3ff11500-979b-11e9-8e9a-c60cc3fb58ef.png)
+
+##### 2) Hyper-Methylated Genes are associated with 2C-like genes from Macfarlan 2012.
+
 
 ## Methylome data pre-processing and downstream analysis in Co mESCs and Gadd45-TKO
 Collection of scripts to detect Differentially Methylated Regions and perform downstream enrichment analysis at several genomic features of mouse ES cells.
