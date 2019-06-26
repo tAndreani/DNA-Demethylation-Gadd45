@@ -1,7 +1,6 @@
 ##### Manuscript accepted in Genes and Development: "Gadd45 promotes locus specific DNA demethylation and 2C cycling in embryonic stem cells" Katrin M. Schule, Manuel Leichsenring, Tommaso Andreani et Al. (http://genesdev.cshlp.org/content/early/2019/06/04/gad.325696.119.abstract)
 
-
-![Demethylation2](https://user-images.githubusercontent.com/6462162/60143743-4fbc2980-979a-11e9-8a73-608d389dca68.png)
+![a](https://user-images.githubusercontent.com/6462162/60145699-6154ff80-97a1-11e9-9ca4-41e185b1eca4.png)
 
 ##### 1) Gadd45 proteins promote demethylation mediated by DNA repairs at TET-TDG dependent genomic sites.
 
