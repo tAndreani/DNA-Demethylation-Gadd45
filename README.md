@@ -122,7 +122,7 @@ bismark_methylation_extractor -p --ignore 5 --ignore_r2 5 --ample_memory --bedGr
 ## Call of Differentially Methylated Regions (DMRs) with MethylKit (contents of the script in the folder "R"):
 `Rscript DMRs.Estimation.r`  
 
-## Downstream post-processing analysis (enrichment at regulatory features from Table Browser UCSC)  
+## Downstream post-processing analysis (enrichment at regulatory features from Table Browser UCSC Figure 2B)  
 
 ```
 #Create Random set regions similar to the DMRs in terms of numbers (6904), length and CG composition to compute the expectation. This task is performed with bedtools shuffle:  
@@ -154,7 +154,7 @@ done
 
 ## Heatmap and frequency plot with deepTools 3.0.1  
 
-#### For Heatmap of Hyper-DMRs at 5mC oxidative products in figure 2-D 
+#### For Heatmap of Hyper-DMRs at 5mC oxidative products in figure 2-C 
 ```
 computeMatrix reference-point --referencePoint center -b 5000 -a 5000
  -R Hyper.DMRs.G45.TKO.100bp.2CpG.Delta30.FDR.0.05.bed
@@ -167,7 +167,7 @@ plotHeatmap
  -m Matrix.$OxFeatures.gz 
  -out Matrix.$OxFeatures.png --colorList --colorList cornflowerblue,yellow,red --missingDataColor white   
 ```
-#### For frequency plot at several genomic features figure 2-F
+#### For frequency plot at several genomic features figure 2-D
 
 #### First create the delta methylation differences in bins of 100 bp in TKO vs WT and the bigWig file
 
