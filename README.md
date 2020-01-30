@@ -122,7 +122,7 @@ bismark_methylation_extractor -p --ignore 5 --ignore_r2 5 --ample_memory --bedGr
 ## Call of Differentially Methylated Regions (DMRs) with MethylKit (contents of the script in the folder "R"):
 `Rscript DMRs.Estimation.r`  
 
-## Downstream post-processing analysis (enrichment at regulatory features from Table Browser UCSC Figure 2B)  
+## Downstream post-processing analysis (enrichment at regulatory features from Table Browser UCSC Figure 2-B)  
 
 ```
 #Create Random set regions similar to the DMRs in terms of numbers (6904), length and CG composition to compute the expectation. This task is performed with bedtools shuffle:  
