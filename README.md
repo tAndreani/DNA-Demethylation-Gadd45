@@ -1,4 +1,5 @@
-##### Check our Manuscript [Gadd45 promotes locus specific DNA demethylation and 2C cycling in embryonic stem cells](https://academic.oup.com/nar/advance-article/doi/10.1093/nar/gkaa180/5809673) published in _Genes & Development_
+##### Check our Manuscript [Gadd45 promotes locus specific DNA demethylation and 2C cycling in embryonic stem cells](https://academic.oup.com/nar/advance-article/doi/10.1093/nar/gkaa180/5809673) published in _Genes & Development_. 
+##### Credits: Katrin M. Schüle, Manuel Leichsenring,Tommaso Andreani, Viviana Vastolo,Medhavi Mallick, Michael U. Musheev, Emil Karaulanov and Christof Niehrs.
 
 ![Git](https://user-images.githubusercontent.com/6462162/66910305-974b1780-f00e-11e9-8025-f8da834c6fd1.png)
 
